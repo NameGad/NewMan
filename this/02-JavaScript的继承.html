@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-JavaScript的继承</title>
+</head>
+<body>
+    <h1>02-JavaScript的继承</h1>
+
+
+
+<script>
+    // 02-JavaScript的继承
+    //  6.类似  call( ) 和  apply( )    和  bing( ) 方法可以将this引用到任何对象
+
+    //继承 修改 this 指向
+    // var monkey = {
+    //     name: '人人人',
+    //     age: 18,
+    //     func: function( ){
+    //         console.log(this.name+this.age);
+    //     }
+    // }
+    // console.log(monkey);
+    // monkey.func( );
+
+    var man = {
+        name: '男人',
+        age: 19
+    }
+
+    var monkey = {
+        name: '黑猴子',
+        age: 18,
+        func: function(from, to){
+            console.log(this.name+'年龄'+this.age+"岁"+"来自"+from+"去往"+to);
+        }
+    } 
+
+    monkey.func('东土大唐','女儿国');
+    monkey.func.call(man,'东土大唐','女儿国');
+    monkey.func.apply(man,['广州','广西']);
+    monkey.func.bind(man,'东土大唐','女儿国')();
+
+
+    
+    //对比 传参
+    // call(指向的对象,"","","",...)
+    // apply(指向的对象,["",'',"",..])
+    // bing(指向的对象,"","",""...)
+</script>
+</body>
+</html>

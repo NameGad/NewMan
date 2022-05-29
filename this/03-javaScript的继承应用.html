@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-javaScript的继承应用</title>
+</head>
+<body>
+    <h1>03-javaScript的继承应用</h1>
+    <p>111</p>
+    <p>222</p>
+    <p>333</p>
+    <p>444</p>
+    <p>555</p>
+    <p>666</p>
+
+<script>
+    var ps = document.getElementsByTagName('p');
+    console.log(ps);    //伪数组
+
+    // 没办法使用真数组的方法      通过 call( ) apply( ) bind( )   可以变为真数组
+    console.log(Array.prototype.slice.call(ps));
+    console.log(Array.prototype.slice.apply(ps));
+    console.log(Array.prototype.slice.bind(ps)());
+</script>
+</body>
+</html>

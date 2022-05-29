@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01JavaScript的this关键字</h1>
+    <h1>this---谁调用指向谁</h1>
+    <button class="btn1">1</button>
+    <button class="btn2">2</button>
+    <button class="btn3">3</button>
+    <button class="btn4">4</button>
+<script>
+    // 1.在方法中，this 表示该方法所属的对象
+    // var person = {
+    //     name: '张三',
+    //     jieshao: function( ){
+    //         console.log(this.name);
+    //         console.log(person.name); // =
+    //     }
+    // }
+    // person.jieshao( );  //person对象
+
+    //构造函数
+    // function Person(name,age){
+    //     this.name = name;
+    //     this.age = age;     //this 指向 对象（谁调用指向谁）
+    // }
+    // var lisi = new Person('李四','60');
+    // console.log(lisi);
+    
+    // var monkey = new Person('黑猴','13');
+    // console.log(monkey);
+
+
+
+
+    // 2. 如果单独使用，this 表示全局（Global）对象，window
+    // a = 10;
+    // console.log(this);
+    // console.log(a);
+    // //  在严格模式下，单独使用
+    // "use strict";       //严格模式
+    // console.log(this);  //window
+   
+
+    //  3.在函数中，this表示全局对象
+    function func(){
+        console.log(this);
+    }
+    func();     //window
+    
+    var fun = {
+        foo: function( ){
+            console.log(this);
+        }
+    }
+    fun.foo();
+
+
+
+
+
+
+    //  4.在函数中，在严格模式下，this 是未定义的（undefined）
+    //  严格模式下，函数中
+    // "use strict"
+    // function func(){
+    //     console.log(this);
+    // }
+    // func();     //undefined
+   
+   
+    //  5.在事件中，this 表示接收事件的元素
+    var btns = document.getElementsByTagName('button');
+    for(let i = 0; i <btns.length; i++){
+        btns[i].onclick = function ( ) {
+            console.log(this);//this 指向 btns[i]
+        }
+    }
+
+
+
+
+
+    //  6.类似  call( ) 和  apply( )    和  bing( ) 方法可以将this引用到任何对象
+
+</script>
+</body>
+</html>
