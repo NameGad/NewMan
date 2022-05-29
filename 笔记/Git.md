@@ -142,39 +142,66 @@ Git环境配置
 
 平时一定要多使用这些基础的命令！
 
-1）、cd : 改变目录。
+1）cd : 改变目录。
 
-2）、cd . . 回退到上一个目录，直接cd进入默认目录
+2）cd . . 回退到上一个目录，直接cd进入默认目录
 
-3）、pwd : 显示当前所在的目录路径。
+3）pwd : 显示当前所在的目录路径。
 
-4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。
+4）ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。
 
-5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。
+5）touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。
 
-6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。
+6）rm:  删除一个文件, rm index.js 就会把index.js文件删除。
 
-7）、mkdir:  新建一个目录,就是新建一个文件夹。
+7）mkdir:  新建一个目录,就是新建一个文件夹。
 
-8）、rm -r :  删除一个文件夹, rm -r src 删除src目录
+8）rm -r :  删除一个文件夹, rm -r src 删除src目录
 
 ```
 rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！
 ```
 
-9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。
+9）mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。
 
-10）、reset 重新初始化终端/清屏。
+10）reset 重新初始化终端/清屏。
 
-11）、clear 清屏。
+11）clear 清屏。
 
-12）、history 查看命令历史。
+12）history 查看命令历史。
 
-13）、help 帮助。
+13）help 帮助。
 
-14）、exit 退出。
+14）exit 退出。
 
-15）、#表示注释
+15）#表示注释
+
+```
+git init 					#把当前目录变成git可以管理的仓库
+git clone git地址 			#克隆项目
+git add readme.txt 			#添加一个文件，也可以添加文件夹
+git add -A 					#添加全部文件
+git rm test.txt 			#删除一个文件，也可以删除文件夹
+git commit -a -m “some commit” #提交修改
+git status 					#查看是否还有未提交
+git log 					#查看最近日志
+git reset --hard HEAD^ 		#版本回退一个版本
+git reset --hard HEAD^^ 	#版本回退两个版本
+git reset --hard HEAD~100 	#版本回退多个版本
+git remote add origin +地址 #远程仓库的提交（第一次链接）
+git push -u origin master	#仓库关联
+git push 					#远程仓库的提交（第二次及之后）
+git fetch 					#从远程获取代码库
+git tag xxx 				#打tag
+git tag 					#显示所有tag
+git push --tag 				#提交tag
+git branch -a 				#显示所有分支
+git checkout 分支名 		#切换分支
+git merge git分支 			#合并分支
+————————————————
+版权声明：本文为CSDN博主「林新发」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/linxinfa/article/details/108709835
+```
 
 
 
@@ -326,6 +353,8 @@ git status
 # git add .                  添加所有文件到暂存区
 
 # git commit -m "消息内容"    提交暂存区中的内容到本地仓库 -m 提交信息
+
+#git push -u origin master
 ```
 
 
