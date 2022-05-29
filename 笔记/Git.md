@@ -190,7 +190,7 @@ git reset --hard HEAD^^ 	#版本回退两个版本
 git reset --hard HEAD~100 	#版本回退多个版本
 git remote add origin +地址 #远程仓库的提交（第一次链接）
 git push -u origin master	#仓库关联
-git push 					#远程仓库的提交（第二次及之后）
+git push 					#远程仓库的提交（第二次及之后）(关联后有修改then重新提交)
 git fetch 					#从远程获取代码库
 git tag xxx 				#打tag
 git tag 					#显示所有tag
