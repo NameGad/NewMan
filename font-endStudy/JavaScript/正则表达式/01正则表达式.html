@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式的方法</title>
+</head>
+<body>
+    <h1>js正则表达式的方法</h1>
+
+<script>
+    // 正则表达式：RegExp(Regular Expression)对象。正则式
+    // 正则表达式 描述字符模式的对象
+    // 可以对字符串进行，搜索，匹配，匹配，替换......
+
+    // 1.创建正则表达式
+    // 字面量
+    // 语法：var reg1 = /表达式/修饰符
+    var reg = /a/;
+    // 构造函数
+    // 语法：var reg2 = new RegExp(表达式,修饰符);
+    var reg2 = new RegExp('a');
+    var str = 'hello world';
+    
+    // i:忽略 大小写
+    // g:全局匹配
+    // 
+
+
+
+    //2.正则表达式的方法
+    // search() 检索
+    console.log(str.search("e"));   //1
+    console.log(str.search(/l/g));   //2
+
+    // match()  找到一个或多个与正则表达式匹配的值
+    console.log(str.match("l"));//'l', index: 2, input: 'hello world', groups: undefined]
+    console.log(str.match(/l/g));   //['l', 'l', 'l']
+    var reg3 = new RegExp('l',"g");
+    console.log(str.match(reg3));   //['l', 'l', 'l']
+
+    // replace()   替换与正则表达式匹配的字串
+    console.log(str.replace('world', 'China'));
+    console.log(str.replace(/l/ig, 'X'))
+
+    // split(分割标志,limit)  将字符串分割成数组
+    console.log(str.split(''));
+    console.log(str.split(/l/,3));
+</script>
+</body>
+</html>

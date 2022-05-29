@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式的量词</title>
+</head>
+<body>
+    <script>
+        // js正则表达式的量词 {量词}
+        // n{X}匹配包含 X 个 n 的序列字符串
+        var reg = /a{3}/;
+        var str = 'aa3aaa';
+        console.log(reg.test(str));
+
+        // n{X,}   X 是一个正整数。前面的模式 n 连续出现至少 X 次时匹配
+        var reg2 = /a{3,}/;
+        var str2 = 'abaaa';
+        console.log(reg2.test(str2));
+        
+        // n{X,Y} X和Y为正整数。前面的模式n连续出现X次，
+        // 至多Y次时匹配,大于Y后也没事，后面不匹配
+        var reg3 =/a{3,5}/;
+        var str3 = 'aaaaaaa';
+        console.log(reg3.test(str3));
+
+
+        // n+ 匹配任何包含一个n 的字符串。 n{1,}
+
+        // n* 匹配任何包含0个或多个n的字符串。 n{0，}
+
+        // n? 匹配任何包含 0 个或一个 n 的字符串。 n{0，1}
+    
+        
+
+        // n$ 匹配任何结尾为 n 的字符串
+        var reg4 = /^a/;
+        var str4 = 'aaa';
+        console.log(reg4.test(str4));
+
+        var reg5 = /[^a]/;  //除了a
+        var str5 = 'aaab';
+        console.log(reg5.test(str5));
+        
+         // ^n 匹配任何开头为 n 的字符串
+         var reg6 = /a$/;
+         console.log(reg6.test(str5));
+
+         
+    </script>
+</body>
+</html>

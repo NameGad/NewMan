@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="axios.min.js"></script>
+    <title>axios 发送 AJAX 请求</title>
+</head>
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+
+<script>
+    var btns = document.querySelectorAll('button');
+    
+    //配置 baseURL
+    axios.defaults.baseURL = 'http://127.0.0.1:8000';
+
+    btns[0].onclick = function( ){
+        //GET请求
+        axios.get('/axios-server',{
+            //url参数
+            params: {
+                id: 199,
+                vip: 999
+            },
+            //请求头信息
+            headers: {
+                name: 123,
+                age: 20
+            }
+        }).then(value => {
+            console.log(value)
+        })
+    }
+
+    btns[1].onclick = function ( ) {
+        axios.post('/axios-server', {
+            username: '林佳成',
+            password: '666' 
+        }, {
+            //url
+            params: {
+                id: 'post',
+                vip: 666
+            },
+            //请求头信息
+            headers: {
+                name: 'ljc',
+                age: 18
+            }
+        })
+    }
+
+    btns[2].onclick = function( ) {
+        axios({
+            //请求方法
+            method: 'post',
+            //url
+            url:'/axios-server',
+            //url参数
+            params: {
+                vip: 10,
+                name: 888
+            },
+            headers: {
+                a: 100,
+                b: 100
+            },
+            data: {
+                username: '666ljc666',
+                password: '0487521'
+            }
+        }).then(Response=>{
+            //响应状态码
+            console.log('响应状态码：'+Response.status);
+            //响应状态字符串
+            console.log('响应状态字符串：'+Response.statusText);
+            //响应头信息
+            console.log(Response.headers);
+            //响应体
+            console.log(Response.data);
+        })
+    }
+</script>
+</body>
+</html>

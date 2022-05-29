@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义便利数据</title>
+</head>
+<body>
+    <h1>自定义遍历数据</h1>
+    <script>
+        const Person = {
+            sex: '女人',
+            name:'小钢炮',
+            characteristic:[
+                '180cm',
+                '90kg',
+                'bigHead'
+            ],
+            // 创建iterator迭代器
+            [Symbol.iterator] ( ) {
+                // 创建索引变量
+                let index = 0;
+                return {
+                    next: ( ) => {
+                        if(index < this.characteristic.length) {
+                            const result = {value: this.characteristic[index],done : false};
+                            //下表自增
+                            index++;
+                            //返回结果
+                            return result;
+                        }else{
+                            return {value: undefined, done: true};
+                        }
+                    }
+                }
+            }
+        }
+        console.log(Person);
+
+        // 遍历这个对象
+        for(let v of Person){
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

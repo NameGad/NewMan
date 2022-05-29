@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <h1>Set</h1>
+    <script>
+        // 声明一个 Set
+        let s = new Set( );
+        let s2 = new Set(['大事','小事','喜事','好事','坏事','趣事']);
+
+        // 元素的个数
+        console.log(s2.size);
+        // 添加新的元素
+        console.log(s2.add('事情'));
+        // 删除元素
+        console.log(s2.delete('坏事'));
+        console.log(s2);
+        // 检查
+        console.log(s2.has('糟心事'));
+        // 清空
+        // console.log(s2.clear());
+        // console.log(s2);
+
+        for (const v of s2) {   
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

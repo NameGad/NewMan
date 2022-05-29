@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let-实践案例</title>
+    <style>
+        .container{
+            overflow: hidden;
+        }
+        .item{
+            height: 200px;
+            width: 200px;
+            border: 1px solid cadetblue;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+<script>
+    let items = document.getElementsByClassName('item');
+
+    //遍历并绑定事件
+    for(let i = 0;i<items.length;i++){
+        items[i].onclick = function ( ) {
+            // this.style.background = 'pink';
+            items[i].style.background = 'pink'; //用var i 的话则没办法，因为最后i=3了
+        }
+    }
+
+    // {
+    //     let i= 0;
+    //     items[i].onclick = function ( ) {
+    //         // this.style.background = 'pink';
+    //         items[i].style.background = 'pink'; //用var i 的话则没办法，因为最后i=3了
+    //     }
+    // }
+    // {
+    //     let i =1;
+    // }
+    // {
+    //     let i =2;
+    // }
+</script>
+</body>
+</html>

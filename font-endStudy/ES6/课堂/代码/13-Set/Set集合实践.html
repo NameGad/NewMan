@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set集合实践</title>
+</head>
+<body>
+    <h1>Set集合实践</h1>
+    <script>
+        let arr = [1,2,3,3,3,6,8,9];
+        let arr2 = [2,3,7,5,8,9,2];
+        // console.log(arr);
+        // //数值去重
+        // let result = [...new Set(arr)];
+        // console.log(result);
+        // let result1 = new Set(arr);
+        // console.log(result1);
+        // 交集
+        // let result2 = [...new Set(arr)].filter(items =>{
+        //     let s2 = new Set(arr2);
+        //     if(s2.has(items)){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // });
+        let result2 = [...new Set(arr)].filter(items => new Set(arr2).has(items) );
+        console.log(result2);
+        // 并集
+        let s = [...new Set([...arr, ...arr2])];
+        console.log(s);
+        // 差集 
+        let result3 = [...new Set(arr)].filter(items => !(new Set(arr2).has(items)));
+        console.log(result3);
+    </script>
+</body>
+</html>

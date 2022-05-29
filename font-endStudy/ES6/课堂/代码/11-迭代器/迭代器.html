@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+    <h1>迭代器</h1>
+    <script>
+        // 声明数组
+        const gril = ['陈莉莉', '赵姿群', '彭泽娜', '马蔓宁'];
+        console.log(gril);
+        //使用for...in 遍历
+        for(let v in gril){
+            console.log(v);
+        }
+        //使用for...of 遍历
+        for(let v of gril){
+            console.log(v);
+        }
+
+        // 迭代器工作原理
+        let iterator = gril[Symbol.iterator]();
+
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+</html>

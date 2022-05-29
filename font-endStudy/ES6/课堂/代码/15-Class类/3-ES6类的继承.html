@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6类的继承</title>
+</head>
+<body>
+    <h1>ES6 类的继承</h1>
+    <script>
+        class Phone{
+            // 构造方法
+            constructor(brand, price){
+                this.brand = brand;
+                this.price = price;
+            }
+
+            // 父类的成员
+            call( ){
+                console.log('我可以和喜欢的人打电话~');
+            }
+        }
+
+        class SmartPhone extends Phone{
+            // 构造方法
+            constructor(brand, price, color, size){
+                super(brand, price);    // 父类的构造方法（Phone.call(this, brand, price)）
+                this.color = color;
+                this.size = size;
+            }
+
+            photo( ){
+                console.log("拍照");
+            }
+
+            playGame( ){
+                console.log('玩游戏');
+            }
+            // 只能重写，不能调用父类的同名方法
+            call( ){
+                console.log('我还可以视频通话呢');
+            }
+        }
+        const Huawei = new SmartPhone('华为','5999','陶瓷白','6.7');
+        console.log(Huawei);
+        Huawei.call( );
+        Huawei.photo( );
+        Huawei.playGame( );
+    </script>
+</body>
+</html>

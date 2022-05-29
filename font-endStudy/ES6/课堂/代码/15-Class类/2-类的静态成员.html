@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态成员</title>
+</head>
+<body>
+    <h1>静态成员</h1>
+    <script>
+        // ES5
+        // 函数对象里面的属性和实例对象是不通的
+        // 实例对象和函数对象的原型（prototype）是相通的
+        function shouji( ){
+
+        }
+        shouji.name = '手机';   //静态成员（属于函数对象，不属于实例对象）
+        shouji.change = function( ){
+            console.log('手机改变生活~');
+        }
+        shouji.change( );    // 可以
+        shouji.prototype.size = '5.5nich';
+
+        let nokia = new shouji( );
+        // console.log(nokia.name);
+        // nokia.change( );      // 报错
+
+        console.log(nokia.size);    // 5.5nich
+        console.log(shouji.size);   //undefined
+        console.log(shouji.prototype.size);     //5.5nich
+
+        // class iPhone{
+        //     // 静态属性 静态属性 属于类(Phone),而不属于对象(iphone)
+        //     static name = '13ProMax';
+        //     static change( ){
+        //         console.log('手机改变对象');
+        //     }
+        // }
+        // let nokia = new Phone( );
+        // console.log(nokia.name);
+        // console.log(iPhone.name);
+    </script>
+</body>
+</html>

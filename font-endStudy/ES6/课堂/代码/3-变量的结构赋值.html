@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值
+        //这被称为结构赋值
+        // 1. 数组结构
+        const F4 = ['林','熊','陈','蒋'];
+        let [lin,xiong,chen,jiang] = F4;
+        console.log(lin);
+        console.log(xiong);
+        console.log(chen);
+        console.log(jiang);  
+
+        //2. 对象的解构
+        const CHEN  = {
+            name: '陈思',
+            age: '20',
+            sing: function ( ) {
+                console.log('都给我唱歌');
+            } 
+        };
+        // let {name, age, sing} = CHEN;
+        // console.log(name);
+        // console.log(age);    
+        // console.log(sing());
+        // sing();
+
+        //用的较多
+        let{sing} = CHEN;
+        sing()
+        </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest参数</title>
+</head>
+<body>
+<script>
+        // ES6 引入rest 参数，用户获取函数的实参，用来代替 arguments
+        // ES5 获取实参的方式
+        function date( ){
+            console.log(arguments);
+        }
+        date('小妹', '大美', '中美');
+
+        // ES6 rest 参数 (rest参数必须放最后)
+        function fn(a, b, ...args){
+            console.log(a);
+            console.log(b)
+            console.log(args);
+        }
+        fn('小妹', '大美', '中美', '中美');
+</script>
+</body>
+</html>

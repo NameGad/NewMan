@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>JQuery 发送 AJAX 请求</title>
+    <style>
+        .container button{
+            border: none;
+            height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .container button:nth-of-type(1){
+            background-color: aquamarine;
+        }
+        .container button:nth-of-type(2){
+            background-color: pink;
+        }
+        .container button:nth-of-type(3){
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JQuery发送AJAX请求</h1>
+        <button>GET</button>
+        <button>POST</button>
+        <button>通用型方法ajax</button>
+    </div>
+
+<script>
+    $('button').eq(0).click(function( ){
+        $.get('http://127.0.0.1:8000/jquery-server', { a:100, b:200, c:300}, function(data){
+            console.log(data);
+        },'json')
+    })
+    $('button').eq(1).click(function( ){
+        $.post('http://127.0.0.1:8000/jquery-server', { a:100, b:200, c:300}, function(data){
+            console.log(data);
+        })
+    })
+    $('button').eq(2).click(function( ){
+        $.ajax({
+            url: 'http://127.0.0.1:8000/jquery-server',
+
+            //参数
+            data: { a:100, b:200},
+
+            //请求类型
+            type: 'GET',
+
+            //响应体结果
+            dataType: 'json',
+
+            //成功回调
+            success: function(data){
+                console.log(data);
+            },
+
+            //超时
+            timeout: 2000,
+            //失败回调
+            error: function( ){
+                console.log('出错啊啊啊啊');
+            },
+
+            //头信息
+            headers: {
+                c: 300,
+                d: 400
+            }
+        })
+    })
+</script>
+</body>
+</html>

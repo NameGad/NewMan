@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <h1>Map</h1>
+    <script>
+        // 声明 Map
+        let m = new Map( );
+
+        // 添加元素（健，值）
+        m.set('name', '林氏');
+        m.set('性别','男 🚹');
+        m.set('fiting', function( ){
+            console.log('美好的生活是拼搏而来的');
+        });
+        let key = {
+            study: '前端学习路线',
+        };
+        m.set(key, ['ES6', 'JavaScript', 'node', 'AJAX', 'vue']);
+        
+        // size
+        console.log(m.size);
+        // 删除
+        // let result = m.delete('name');
+        // console.log(result);
+        // 获取
+        console.log(m.get('name'));
+        // 清空
+        // let result2 = m.clear( );
+        // console.log(result2);
+        // 遍历
+        for (const v of m) {
+            console.log(v);
+        }
+
+        console.log(m);
+    </script>
+</body>
+</html>

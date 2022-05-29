@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数实践</title>
+    <style>
+        #result{
+            height: 200px;
+            width: 200px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">
+
+    </div>
+
+<script>
+    let result = document.getElementById('result');
+    result.onclick = function ( ) {
+        setTimeout (() => {
+            this.style.backgroundColor = 'pink';
+        },1000)
+    }
+
+    //  从数组中返回偶数的元素
+    const arr = [1,2,4,5,7,8,100];
+    // const even = arr.filter(function(item){
+    //     if(item % 2 === 0){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // });
+    const even = arr.filter( item => item % 2 === 0);
+    console.log(even);
+    
+    // 箭头函数适合与 this 无关的回调：定时器，数组的方法回调
+    // 箭头函数不适合于 this 有关的回调： 事件回调，对象的方法
+    var person = {
+        name: '李嘉诚',
+        age: 18,
+        fcn: ()=>{
+            console.log(this.name);
+        }
+    }
+    person.fcn();
+</script>
+</body>
+</html>

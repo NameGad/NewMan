@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // await 要放在 async 函数中，但是async中可以没有await
+        const p = new Promise((resolve, reject)=>{
+            // resolve("成功的值");
+            reject("你失败了");
+        });
+
+        async function main( ){
+            try{
+                let result = await p;
+                console.log(result);
+            }catch(e){
+                console.log( e );
+            }
+        }
+        main( );
+    </script>
+</body>
+</html>

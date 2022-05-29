@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01test</title>
+</head>
+<body>
+
+
+<script>
+    var reg = /^[abc]$/;//表示只能a、b、c三选一
+    var reg2 = /[abc]/;
+    var reg3 = /^[abc]{7,10}$/;
+    console.log(reg.test('a'));
+    console.log(reg.test('aaabcc'));
+    console.log(reg2.test('aaaaacbbbb'));
+    console.log(reg3.test('aaabccc'));
+</script>
+</body>
+</html>

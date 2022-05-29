@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.fromEntries</title>
+</head>
+<body>
+    <h1>Object.fromEntries</h1>
+    <script>
+        //Object.entries: 将对象转化为二维数组
+        //Object.fromEntries：将数组转化为对象
+        // 二维数组
+        const result = Object.fromEntries([
+            ['name','林佳成'],
+            ['xueke','java, web前端, vue']
+        ]);
+        console.log(result);
+
+        //Map()
+        // const m = new Map();
+        // m.set('name','林佳成');
+        // const result = Object.fromEntries(m);
+        
+
+        //Object.entries ES8(将一个对象转化为二维数组)
+        const arr = Object.entries({
+            name:'林佳成'
+        })
+        console.log(arr);
+        
+    </script>
+</body>
+</html>

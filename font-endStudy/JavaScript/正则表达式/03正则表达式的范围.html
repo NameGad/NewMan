@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式的实际使用</title>
+</head>
+<body>
+    <h1>正则表达式的实际使用</h1>
+    <script>
+        var str = 'hello China';
+        var str2 = 'aaaaaa'
+        // 1.正则表达式的氛围   []
+        var reg = /abc/;
+        var reg2 = /[abc]/;     //含有a或者b或者c
+        var reg3 = /[^abc]/;    //除了abc以外，还有其他就true了
+        console.log(reg.test(str));     //false
+        console.log(reg2.test(str));    //true
+        console.log(reg3.test(str2));    // true
+
+        // [abc]    查找方括号之间的任何字符
+        // [^abc]   查找任何不在方括号之间的字符
+        // [0-9]    查找任何从 0 至 9 的字符
+        // [a-z]    查找任何从 a 至 z 的字符
+        // [A-Z]    查找任何从大写 A 到小写 z 的字符
+        // [adgk]   查找给定集合内的任何字符
+        // [^adgk]  查找给定集合外的如何字符
+        // 组合
+        // (red|blue|green) 查找任何指定的选项
+        var reg4 = /(na|b|z)/;  
+        var str3 = "hello china";
+        console.log(reg4.test(str3));   // ture
+
+        
+    </script>
+</body>
+</html>

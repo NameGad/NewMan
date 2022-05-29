@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02正则表达式的方法</title>
+</head>
+<body>
+    <h1>02正则表达式的方法</h1>
+    <script>
+        // 正则表达式的方法
+        // test()   测试字符串中的值是否符合匹配的条件 true false
+        var str = "hello world";
+        var reg = /hello/i;
+        console.log(reg.test(str));
+
+        // exec()   检索字符串中指定的值。返回值得索引  没有返回 null
+        console.log(reg.exec(str));
+
+        // toString()   转化为字符串。
+        console.log(reg.toString());
+
+
+        // 正则表达式的属性
+        // constructor 返回一个函数，该函数是一个创建RegExp 对象的原型
+        console.log(reg.constructor);
+        var reg2 = /a23/igm;
+        // global   判断是否设置了"g"修饰符
+        console.log(reg2.global);
+        // ignoreCase  判断是否设置了 "i" 修饰符
+        console.log(reg2.ignoreCase);
+        // multiline    判断是否设置了 "m" 修饰符
+        console.log(reg2.multiline);
+        // source  返回正则表达式的匹配模式    表达式
+        console.log(reg2.source);
+        // lastIndex   用于规定下次匹配的起始位置  值适用于设置了 getComputedStyle
+        var str3 = 'hello world';
+        var reg3 = /l/g;
+        while(reg3.test(str3)){
+            console.log(reg3.lastIndex);
+        }
+    
+    </script>
+</body>
+</html>
