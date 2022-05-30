@@ -43,10 +43,10 @@
                 if(xhr.status >= 200 && xhr.status < 300){
                     //  处理结果 行 头 空行 体
                     //  响应体
-                    console.log(xhr.status);    //状态码
-                    console.log(xhr.statusText);    //状态字符串
+                    console.log(xhr.status);    //状态码（200~500）
+                    console.log(xhr.statusText);    //状态字符串（OK）
                     console.log(xhr.getAllResponseHeaders());   //所有响应头
-                    console.log(xhr.response);  //响应体
+                    console.log(xhr.response);  //响应体（content-type: text/html; charset=utf-8）
 
                     result.innerHTML = xhr.response;
                 }else{
