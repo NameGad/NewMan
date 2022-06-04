@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>导航栏</title>
+</head>
+<body>
+    <!-- 
+        nav-stacked 垂直展示
+        nav-justified 自适应铺满
+     -->
+    <div class="container">
+        <ul id="tab_list" class="nav nav-pills nav-justified" role="tablist"> 
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Hello</a></li>
+            <li role="presentation" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Offer
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" role="menuitem">Hello Boy</a></li>
+                        <li><a href="#" role="menuitem">Hello Boy</a></li>
+                        <li><a href="#" role="menuitem">Hello Boy</a></li>
+                        <li><a href="#" role="menuitem">Hello Boy</a></li>
+                        <li><a href="#" role="menuitem">Hello Boy</a></li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+<script>
+    $('#tab_list li').click(function(){
+        // e.preventDefault();
+        $(this).toggleClass('active').siblings().removeClass('active');
+    });
+</script>
+</body>
+</html>

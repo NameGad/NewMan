@@ -7,9 +7,16 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <title>CSS表格样式</title>
+    <style>
+        .container{
+            border: 1px solid #ddd;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <!-- 内联表单 -->
+    <div class="container">
+        <!-- 内联表单 -->
     <!-- 
         1.可能需要手动设置宽度
         在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 width: 100%; 宽度。
@@ -23,99 +30,129 @@
         如果这些都不存在，屏幕阅读器可能会采取使用 placeholder 属性，
         如果存在的话，使用占位符来替代其他的标记，但要注意，这种方法是不妥当的。
      -->
-    <h1>form-inline 内联表单</h1>
-    <form class="form-inline">
-        <div class="form-group">
-            <label class="col-form-label">User</label>
-            <input type="text" class="form-control" placeholder="请输入用户名">
-        </div>
-        <div class="form-group">
-            <label class="col-form-label">password</label>
-            <input type="password" class="form-control" placeholder="请输入密码">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">Example block-level help text here.</p>
-          </div>
-    </form>
-
-    <!-- 水平表单 -->
-    <!-- 
-        通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，
-        可以将 label 标签和控件组水平并排布局。这样做将改变 .form-group 的行为，
-        使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。
-     -->
-    <h1>form-horizontal 水平排列表单</h1>
-    <form action="" class="form-horizontal">
-        <div class="form-group">
-          <label for="" class="col-sm-2">Email</label>
-          <div class="col-sm-9">
-            <input type="email" class="form-control" placeholder="email">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="" class="col-sm-2">password</label>
-          <div class="col-sm-9">
-            <input type="password" class="form-control" placeholder="password">
-          </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-9">
-                <input type="checkbox"> Remember-me
-                <input type="checkbox"> Remember-me
-                <input type="checkbox"> Remember-me
+        <h1>form-inline 内联表单</h1>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="col-form-label">User</label>
+                <input type="text" class="form-control" placeholder="请输入用户名">
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-2">
-                <button type="submit" class="btn btn-default">Submit</button>
+            <div class="form-group">
+                <label class="col-form-label">password</label>
+                <input type="password" class="form-control" placeholder="请输入密码">
             </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+        </form>
+
+        <!-- 水平表单 -->
+        <!-- 
+            通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，
+            可以将 label 标签和控件组水平并排布局。这样做将改变 .form-group 的行为，
+            使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。
+        -->
+        <h1>form-horizontal 水平排列表单</h1>
+        <form action="" class="form-horizontal">
+            <div class="form-group has-success">
+            <label for="" class="col-sm-2">Email</label>
+            <div class="col-sm-9 has-success">
+                <input type="email" class="form-control" placeholder="email">
+            </div>
+            </div>
+
+            <div class="form-group has-warning">
+            <label for="" class="col-sm-2">password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="password">
+            </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9">
+                    <input type="checkbox"> Remember-me
+                    <input type="checkbox"> Remember-me
+                    <input type="checkbox"> Remember-me
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- 输入框样式 -->
+        <h1>被支持的控件</h1>
+        <form action="" class="form-horizontal">
+            <input type="text" class="form-control">
+            <textarea cols="30" rows="5" class="form-control"></textarea>
+        </form>
+
+        <h1>多选框和单选框</h1>
+        <div class="form-check">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" checked>
+            Display value
+        </label>
         </div>
-    </form>
+        <div class="checkbox disabled">
+            <label for="">
+                <input type="checkbox">
+                Option two is disabled
+            </label>
+        </div>
 
-    <!-- 输入框样式 -->
-    <h1>被支持的控件</h1>
-    <form action="" class="form-horizontal">
-        <input type="text" class="form-control">
-        <textarea cols="30" rows="5" class="form-control"></textarea>
-    </form>
+        <div class="radio">
+            <label for="">
+                <input type="radio" checked>
+                Option one is this and that&mdash;be sure to include why it's great
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Option two can be something else and selecting it will deselect option one
+            </label>
+        </div>     
+        <div class="radio">
+            <label for="">
+                <input type="radio" disabled>
+                option three is disabled
+            </label>
+        </div>
+        <input type="text" class="form-control" placeholder="我被禁用了" disabled>
+    </div>
 
-    <h1>多选框和单选框</h1>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" checked>
-        Display value
-      </label>
-    </div>
-    <div class="checkbox disabled">
-        <label for="">
-            <input type="checkbox">
-            Option two is disabled
-        </label>
-    </div>
+    <div class="container">
+        <h1>内联单选和多选框</h1>
+        <form action="">
+            <label for="" class="checkbox-inline">
+                <input type="checkbox">1
+            </label>
+            <label for="" class="checkbox-inline">
+                <input type="checkbox">2
+            </label>
+            <label for="" class="checkbox-inline">
+                <input type="checkbox">3
+            </label>
 
-    <div class="radio">
-        <label for="">
-            <input type="radio" checked>
-            Option one is this and that&mdash;be sure to include why it's great
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Option two can be something else and selecting it will deselect option one
-        </label>
-      </div>
-a      
-    <div class="radio">
-        <label for="">
-            <input type="radio" disabled>
-            option three is disabled
-        </label>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="radio" id="" value="checkedValue"> Display value
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="radio" id="" value="checkedValue"> Display value
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="radio" id="" value="checkedValue"> Display value
+                </label>
+            </div>
+            
+            
+        </form>
     </div>
 </body>
 </html>

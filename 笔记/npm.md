@@ -23,7 +23,7 @@ npm -v  #通过查看版本，看npm是否安装成功
 
 npm install <Module Name>   #使用 npm 命令安装模块
 
-npm install <Module Name> -g  #可以直接在命令行里使用
+npm install <Module Name> -g  #可以直接在命令行里使用，全局安装
 
 npm list -g #查看所有全局安装的模块
 
@@ -31,9 +31,13 @@ npm list vue #查看某个模块的版本号
 
 npm -g install npm@5.9.1 （#@后跟版本号）这样我们就可以更新npm版本
 
-npm install -save moduleName     # -save 在package文件的dependencies节点写入依赖。
+npm uninstall jqeury #卸载
 
-npm install -save-dev moduleName # -save-dev 在package文件的devDependencies节点写入依赖dependencies：运行时的依赖，发布后，即生产环境下还需要用的模块
+npm install -save moduleName   # -save 在package文件的dependencies节点写入依赖。（运行时依赖）
+
+npm install -save-dev moduleName # -save-dev 在package文件的devDependencies节点写入依赖
+
+dependencies：#运行时的依赖，发布后，即生产环境下还需要用的模块
 
 devDependencies：#开发时的依赖。里面的模块是开发时用的，发布时用不到它,比如项目中使用的 gulp ，压缩css、js的模块。这些模块在我们的项目部署后是不需要的
 ```

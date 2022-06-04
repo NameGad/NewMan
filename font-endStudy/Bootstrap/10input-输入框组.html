@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>输入框组</title>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" placeholder="User">
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-addon">0.0</span>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">￥</span>
+            <input type="text" class="form-control">
+            <span class="input-group-addon">.00</span>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="input-group input-group-xs">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info">登陆选项</button>
+                        <button class="btn btn-info  dropdown-toggle"  data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Hello World</a></li>
+                            <li><a href="#">Hello World</a></li>
+                            <li><a href="#">Hello World</a></li>
+                        </ul>
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+</body>
+</html>

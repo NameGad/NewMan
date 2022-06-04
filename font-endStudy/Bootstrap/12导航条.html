@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>导航条</title>
+</head>
+<body>
+    <!-- 
+         navbar-fixed-bottom（top）:固定导航栏在上面还是下面
+     -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navgation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">佳成学院</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="tab_list">
+                    <li class="active"><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+
+                <form action="" class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索">
+
+                            <!-- <input type="submit" class="btn btn-default" value="搜索"> -->
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </span>
+                        </span>
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            点击
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home2</a></li>
+            <li><a href="#">Home3</a></li>
+        </ul>
+    </nav>
+    <!-- heello
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    heelo -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script>
+        $('#tab_list li').click(function(){
+            // e.preventDefault();
+            $(this).toggleClass('active').siblings().removeClass('active');
+        });
+    </script>
+</body>
+</html>

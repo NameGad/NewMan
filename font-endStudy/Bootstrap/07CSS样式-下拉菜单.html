@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>下来菜单</title>
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                下拉菜单
+                <!-- 小箭头 -->
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">大写一到四</li>
+                <li><a href="#" role="menuitem">111</a></li>
+                <li><a href="#" role="menuitem">222</a></li>
+                <li><a href="#" role="menuitem">333</a></li>
+                <li><a href="#" role="menuitem">444</a></li>
+                <li><a href="#" role="menuitem">555</a></li>
+                <!-- 添加分割线 -->
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" class="dropdown-header">大写一到四</li>
+                <li><a href="#" role="menuitem">一一一</a></li>
+                <li class="disabled"><a href="#" role="menuitem">二二二</a></li>
+                <li><a href="#" role="menuitem">三三三</a></li>
+            </ul>
+        </div>
+    </div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
