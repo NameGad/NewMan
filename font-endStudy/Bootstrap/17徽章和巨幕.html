@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>徽章(badge)和巨幕</title>
+</head>
+<body>
+    <!-- 
+        IE8 可能不支持
+     -->
+    <div class="container">
+        <a href="#">短信消息<span class="badge">30</span></a>
+        <button class="btn btn-info" type="button">
+            Message
+            <span class="badge">99+</span>
+        </button>
+        <ul class="nav nav-pills" role="rablist">
+            <li role="presentation" class="active"><a href="#">Home <span class="badge">10</span></a></li>
+            <li role="presentation" class="success"><a href="#">Message <span class="badge">99+</span></a></li>
+            <li role="presentation"><a href="#">Problem <span class="badge">99+</span></a></li>
+        </ul>
+
+        <!-- 巨幕 -->
+        <div class="jumbotron">
+            <h1 class="display-3">Jumbo heading</h1>
+            <p class="lead">Jumbo helper text</p>
+            <hr class="my-2">
+            <p>More info</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="" role="button">Jumbo action name</a>
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>
