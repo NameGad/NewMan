@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具提示</title>
+</head>
+<body>
+    <div class="container">
+        <p>
+            真好~还是
+            <a id="mytooltip" type="button" data-toggle="tooltip" data-animation="true" data-placement="bottom" title="陈莉莉" >
+                你
+            </a>呢
+            
+        </p>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(()=>{
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        // 事件
+        $('#mytooltip').on("hidden.bs.tooltip",()=>{
+            alert(666);
+        })
+    </script>
+</body>
+</html>

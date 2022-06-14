@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>标签页</title>
+</head>
+<body>
+    <!-- 
+        1.第一个li需要添加active，与之对应的div也需要添加 active，否则报错
+        2.fade，添加在显示内容区域，可淡入淡出，active对的div需要用 fade in active
+     -->
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul id="myTab" class="nav nav-tabs navbar-default" role="tablist">
+            <li class="active"><a href="#one" data-toggle="tab" role="tab">GirlFriend</a></li>
+            <li><a href="#two" data-toggle="tab" role="tab">GirlFriend</a></li>
+            <li><a href="#three" data-toggle="tab" role="tab">GirlFriend</a></li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" role="tab">
+                    Family
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#parents" data-toggle="tab">父母</a></li>
+                    <li><a href="#sister" data-toggle="tab">妹妹</a></li>
+                    <li><a href="#brother" data-toggle="tab">哥哥</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="one" role="tabpanel">
+                <h1>ONE</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+            <div class="tab-pane fade" id="two" role="tabpanel">
+                <h1>TWO</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+            <div class="tab-pane fade" id="three" role="tabpanel">
+                <h1>Three</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+            <div class="tab-pane fade" id="parents" role="tabpanel">
+                <h1>LCX和ZYX</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+            <div class="tab-pane fade" id="sister" role="tabpanel">
+                <h1>LXF</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+            <div class="tab-pane fade" id="brother" role="tabpanel">
+                <h1>LWB</h1>
+                <h4>CLL</h4>
+                <p>窈窕淑女，君子好逑</p>
+                <p>黄河之水天上来</p>
+                <p>我欲乘风归去，又恐琼楼玉宇</p>
+                <p>高处不胜寒</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        // 方法
+        $('#myTab li:eq(6) a').tab('show');
+        // 事件
+        $("a[data-toggle='tab']").on('shown.bs.tab',()=>{
+            setTimeout(()=>{
+                alert(123);
+            },300)
+        })
+    </script>
+</body>
+</html>

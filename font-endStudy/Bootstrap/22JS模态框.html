@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>模态框</title>
+</head>
+<body>
+    <!-- 
+        fade:动画效果（从下向下）
+        增强模态框的可访问性
+        务必为 .modal 添加 role="dialog" 和 aria-labelledby="..." 属性，用于指向模态框的标题栏；
+        为 .modal-dialog 添加 aria-hidden="true" 属性。
+        另外，你还应该通过 aria-describedby 属性为模态框 .modal 添加描述性信息。
+     -->
+    <div class="container">
+        <!-- test1 -->
+        <!-- <button class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#myModal">
+            Modal
+        </button>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModallabel">Modal titile</h4>
+                    </div>
+                    <div class="modal-body">
+                        Content
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- test2 -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="@Ljc">
+            Modal@Ljc
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="@Cll">
+            Modal@Cll
+        </button>
+        <div class="modal fade" id="Modal" role="dialog" aria-labelledby="exampleModalLabel">
+            <!-- 可设置大小 -->
+            <div class="modal-dialog modal-sm" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="exampleModalLabel">New Message</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Recipient</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">Message</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        // $('#myModal').modal();
+        $('#Modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+    </script>
+</body>
+</html>

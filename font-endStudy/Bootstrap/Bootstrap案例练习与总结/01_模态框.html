@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>模态框</title>
+</head>
+<body>
+    <div class="contianer">
+        <button data-target="#myModal" data-toggle="modal" class="btn-lg btn btn-success" role="button" type="button">出来吧BigModal</button>
+        <button data-whatever="@陈莉莉" data-target="#myModal" data-toggle="modal" class="btn btn-info" type="button" role="button">@陈莉莉</button>
+        <div class="modal fade" role="dialog " id="myModal">
+            <!-- Modal 模态框-->
+            <div class="modal-dialog modal-lg">
+                <!-- content 内容 -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- aria-label:增强可读性 -->
+                        <button class="close" aria-label="Close" data-dismiss="modal" type="button" role="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <form action="">
+                                <label for="user_name">User</label>
+                                <input class="form-control" role="input" type="text" id="user_name">
+                                <div class="form-group">
+                                  <label for="user_psw">Password</label>
+                                  <input type="text" name="" id="user_psw" class="form-control" placeholder="" aria-describedby="helpId">
+                                  <small id="helpId" class="text-muted">必须包含两种以上的字符</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-warning">CLose</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        // $('#myModal').modal();
+        $("#myModal").on("show.bs.modal",function(e){
+            var button = $(e.relatedTarget);
+            var recipient = button.data("whatever");
+            var modal = $(this);
+            if(recipient == null){
+                modal.find(".modal-title").text("Title");
+                modal.find(".modal-body input").attr('placeholder','');
+            }else{
+                modal.find(".modal-title").text("Hello"+recipient);
+                modal.find(".modal-body input").attr('placeholder',recipient);
+            }
+        })
+
+        $('#myModal').modal({
+            backdrop:false,
+            keyboard:true,
+            show:false,
+        })
+        $('#myModal').on('hidden.bs.modal',(e)=>{
+            setTimeout(()=>{
+                alert('Modal 被隐藏了');
+            },300)
+        })
+    </script>
+</body>
+</html>

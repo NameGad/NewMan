@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>下拉菜单</title>
+    <style>
+        .dropdown-menu{
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown" id="myDropdown">
+            <!-- data-toggle 必须加入控制下拉菜单的上下 -->
+            <button class="btn btn-primary" data-toggle="dropdown">
+                下拉菜单
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu"> 
+                <li>一一得一</li>
+                <li>二二得四</li>
+                <li>三三得九</li>
+                <li>六六大顺</li>
+                <li>九九归一</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        // 事件
+        $('#myDropdown').on("hide.bs.dropdown",()=>{
+            alert("关闭啦");
+        })
+    </script>
+</body>
+</html>
