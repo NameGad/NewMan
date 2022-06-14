@@ -8,17 +8,33 @@
 </head>
 <body>
     <div class="container">
+        我是container
         <button class="btn1">按钮1</button>
         <button class="btn2">按钮2</button>
-        <button class="btn3">按钮3</button>
+        <button class="btn3">div</button>
         <p>我是ppp1</p>
         <p>我是ppp2</p>
         <p>我是ppp3</p>
     </div>
 
 <script>
-    var btn1 = document.getElementsByClassName('btn1');
-    btn1.on
+    var btn1 = document.getElementsByClassName('btn1')[0];
+    var btn2 = document.querySelector('.btn2');
+    var btn3 = document.querySelector('.btn3');
+    var p = document.querySelectorAll('p');
+    var div = document.getElementsByClassName('container')[0];
+    btn1.addEventListener('click',function(){
+        // p[0].innerHTML = "<button class='btn3'>按钮4</button>";
+        p[0].innerText = "<button class='btn3'>按钮4</button>";
+    })
+    
+    btn2.addEventListener('click',function(){
+        console.log(btn2.innerHTML);
+        console.log(btn2.firstChild.nodeValue);
+    });
+    btn3.onclick = ()=>{
+        console.log(div.firstChild)
+    }
 </script>
 </body>
 </html>
