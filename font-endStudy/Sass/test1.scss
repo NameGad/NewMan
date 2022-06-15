@@ -1,0 +1,14 @@
+// test1
+$name:foo;
+$attr:border;
+p.#{$name}{
+    #{$attr}-color:black;
+}
+
+// test2 
+button{
+    background-color: pink;
+    &:hover{
+        background-color: yellow;
+    }
+}

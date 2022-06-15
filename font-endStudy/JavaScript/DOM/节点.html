@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加和删除节点</title>
+</head>
+<body>
+    <button>添加(appendChild)</button>
+    <button>添加(innerHTML)</button>
+    <button>移除(remove)</button>
+    <button>替换(replaceChild)</button>
+    <div>
+        <p>我是p1p1p1p1p1p1</p>
+        <p>我是p2p2p2p2p2p2</p>
+        <p>我是p3p3p3p3p3p3</p>
+    </div>
+
+    <script>
+        var p = document.querySelectorAll('p');
+        var btn = document.getElementsByTagName('button');
+        var div = document.querySelector('div');
+        // 添加节点
+        btn[0].addEventListener('click',()=>{
+            var newP = document.createElement("p");
+            var newNode = document.createTextNode('我是新的p标签');
+            newP.appendChild(newNode);
+            console.log(newP);
+            // div.appendChild(newP);
+            div.prepend(newP);
+            div.append(newP);
+        });
+        btn[1].onclick = ()=>{
+            div.innerHTML = "<p>我是第二个新的p标签</p>"
+            // div.append(newp);
+        }
+        // 替换节点
+        btn[2].addEventListener('click',()=>{
+            var p1 = document.getElementsByTagName('p')[0];
+            p1.remove();
+        });
+        // 替换节点
+        btn[3].addEventListener('click',function(){
+
+        });
+    </script>
+</body>
+</html>

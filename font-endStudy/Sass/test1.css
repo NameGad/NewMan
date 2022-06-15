@@ -1,0 +1,11 @@
+p.foo {
+  border-color: black;
+}
+
+button {
+  background-color: pink;
+}
+
+button:hover {
+  background-color: yellow;
+}
