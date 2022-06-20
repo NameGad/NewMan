@@ -9,3 +9,7 @@ button {
 button:hover {
   background-color: yellow;
 }
+
+div {
+  border: 3px solid pink;
+}

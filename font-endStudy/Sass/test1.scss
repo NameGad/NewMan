@@ -12,3 +12,10 @@ button{
         background-color: yellow;
     }
 }
+
+//test3
+$add2: 1 + 2;   //3
+$add1: 1 + 2px; // 3px
+div{
+   border: #{$add1} solid pink;
+}
