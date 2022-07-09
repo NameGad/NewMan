@@ -382,7 +382,7 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 
 
 
-## 使用码云
+## 使用码云（秘钥）
 
 **github 是有墙的，比较慢，在国内的话，我们一般使用 gitee ，公司中有时候会搭建自己的gitlab服务器**
 

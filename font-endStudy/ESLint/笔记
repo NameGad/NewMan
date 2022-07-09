@@ -1,0 +1,12 @@
+用法：
+    npx eslint --init（初始化）
+
+
+1、文件内的.eslintrc.json文件的优先级要高于文件外的.eslintrc.json
+
+2、出现未定义的变量时，可以在文件上面
+    /* global ServerData */
+    也可以在.eslint.js文件添加
+    "globals": {
+        "ServerData": "true"/"false"/"readonly"
+    },
