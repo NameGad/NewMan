@@ -26,15 +26,10 @@
             computed:{
                 // 完整写法
                 /*fullName:{
-                    // get有什么作用？当有人读取fullName时，get就会调用，且返回值就作为fullName的值
-                    // get什么时候调用? 1.初次读取fullName时。2.所依赖的数据发生变化时
                     get(){
                         console.log('get被调用了');
-                        console.log(this); // 此处的this是vm
                         return this.firstName + '-' + this.lastName
                     },
-                    // set什么时候调用? 当fullName被修改时
-                    // value：fullName被修改的值
                     set(value){
                         console.log('set', value)
                         const arr = value.split('-') //分割成数组形式
