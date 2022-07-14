@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列表排序</title>
+        <!-- 引入Vue -->
+        <script type="text/javascript" src="../js/vue.js"></script>
+    </head>
+    <body>
+        <!-- 准备好一个容器 -->
+        <div id="root">
+            <h2>人员名单</h2>
+            搜索：<input type="text" placeholder="请输入名字" v-model="keyWord">
+                <button @click="sortType = 2">年龄升序</button>
+                <button @click="sortType = 1">年龄降序</button>
+                <button @click="sortType = 0">原来顺序</button>
+            <ul>
+                <li v-for="person in filPersons" :key="person.id">
+                    {{person.name}}--{{person.age}}--{{person.sex}}
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
+
+        const vm = new Vue({
+            el: '#root',
+            data:{
+                keyWord: '',
+                sortType:0, // 原顺序 1降序 2升序
+                persons:[
+                    {id:"001", name:'周杰伦', age:30, sex:'男'},
+                    {id:"002", name:'周冬雨', age:35, sex:'女'},
+                    {id:"003", name:'小明伦', age:80, sex:'男'},
+                    {id:"004", name:'小红伦', age:18, sex:'女'},
+                ],
+            },
+            computed:{
+                filPersons(){
+                    // 名字都包含空字符串 ""
+                    const arr = this.persons.filter((p)=>{
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                    // 判断一下是否需要排序(1&2 boolean 都是真)
+                    if(this.sortType){
+                        arr.sort((p1,p2)=>{
+                            return this.sortType === 1 ? p2.age-p1.age : p1.age-p2.age 
+                        })
+                    }
+                    return arr
+                }
+            }
+        })
+        
+        let arr = [1,6,7,8,3]
+        arr.sort((a,b)=>{
+            return a-b
+        })
+        console.log(arr);
+    </script>
+</html>

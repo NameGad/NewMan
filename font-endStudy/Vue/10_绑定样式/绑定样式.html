@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>el与data的两种写法</title>
+        <!-- 引入Vue -->
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <style>
+            .basic{
+                width: 600px;
+                height: 150px;
+                border: 1px solid black;
+            }
+            .normal{
+                background-color: skyblue;
+            }
+            .happy{
+                background-color: orange;
+                border: 2px dotted whitesmoke;
+            }
+            .sad{
+                background-color: greenyellow;
+                border: 2px dotted blue;
+            }
+            .ljc1{
+                font-size: 30px;
+                color: aquamarine;
+            }
+            .ljc2{
+                border-radius: 20px;
+            }
+            .ljc3{
+                opacity: 0.5;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            绑定样式：
+                1.class样式
+                    写法：class="xxx" xxx可以是字符串、对象、数组
+                        字符串写法适用于：类名不确定，要动态获取
+                        对象写法适用于：要绑定多个样式，个数不确定，名字也不确定
+                        数组写法适用于：要绑定多个样式，个数确定，名字也确定，但不确定用不用
+                2.style样式
+                    :style="{fontSize: xxx}"其中xxx是动态值
+                    :style="[a, b]" 其中a、b是样式对象
+        -->            
+        <!-- 准备好一个容器 -->
+        <div id="root">
+            <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+            <div class="basic" :class="mood" @click="changeMood">{{name}}</div><br><br>
+
+            <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+            <div class="basic" :class="classArr">{{name}}</div><br><br>
+
+            <!-- 绑定class样式--对象写法，适用于：要绑定的样式个数确定、名字确定，但要动态决定用不用 -->
+            <div class="basic" :class="classObj">{{name}}</div><br><br>
+
+            <div class="basic" :class="classObj" :style="styleObj">{{name}}</div><br><br>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
+
+        const vm = new Vue({
+            el: '#root',
+            data:{
+                name: '林佳成',
+                mood: 'normal',
+                classArr:['ljc1', 'ljc2', 'ljc3'],
+                classObj:{
+                    ljc1: false,
+                    ljc2: false,
+                },
+                styleObj:{
+                    fontSize: "39px",
+                    color: 'pink',
+                }
+            },
+            methods: {
+              changeMood(){
+                const arr = ['happy', 'sad', 'normal']
+                let index = Math.floor(Math.random()*3);
+                this.mood = arr[index]
+              }  
+            },
+        })
+    </script>
+</html>

@@ -9,12 +9,19 @@
     <body>
         <!-- 准备好一个容器 -->
         <div id="root">
-            
+            <h2>{{name}}</h2>
+            <h2>{{address}}</h2>
         </div>
     </body>
 
     <script type="text/javascript">
         Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
-
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                name: '尚硅谷',
+                address: '汕头'
+            }
+        })
     </script>
 </html>
