@@ -41,7 +41,8 @@
                     this.persons[0].age = 13
                     this.persons.sex = '男' 
                     */ 
-                    this.persons[0] = {id:"001", name:'马保国', age:30, sex:'男'}
+                    // this.persons[0] = {id:"001", name:'马保国', age:30, sex:'男'} 不奏效
+                    this.persons.splice(0,1,{id:"001", name:'马保国', age:30, sex:'男'})
                 }
             }
         })

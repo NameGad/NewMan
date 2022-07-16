@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue监测数据改变的原理</title>
+        <!-- 引入Vue -->
+        <script type="text/javascript" src="../js/vue.js"></script>
+    </head>
+    <body>
+        <!-- 准备好一个容器 -->
+        <div id="root">
+            <h1>学生信息</h1>
+            <button @click="addSex">添加性别(添加男)</button>
+            <h2>姓名：{{student.name}}</h2>
+            <h2 v-show = "student.sex">性别：{{student.sex}}</h2>
+            <h2>姓名：{{student.age.rAge}}</h2>
+            <h2>爱好:</h2>
+            <ul>
+                <li v-for="(h, index) in hobby" :key="index">
+                    {{h}}
+                </li>
+            </ul>
+            <hr>
+            <h2>朋友们</h2>
+            <ul>
+                <li v-for="(f,index) in friends" :key="index">
+                    {{f.name}}----{{f.age}}
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                student:{
+                    name: 'tom',
+                    age:{
+                        rAge:40,
+                        sAge:29
+                    }
+                },
+                friends:[
+                    {name:'Mark',age:31},
+                    {name:'Jone',age:28}
+                ],
+                hobby:['敲代码', '写代码', '运动'],
+            },
+            methods: {
+              addSex(){
+                // Vue.set(this.student, 'sex', '男')
+                this.$set(this.student, 'sex', '男')
+              }
+            },
+        })
+    </script>
+</html>
