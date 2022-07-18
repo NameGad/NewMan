@@ -2,14 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>xxx</title>
+        <title>v-pre</title>
         <!-- 引入Vue -->
         <script type="text/javascript" src="../js/vue.js"></script>
     </head>
     <body>
+        <!-- 
+            v-pre指令：
+                1.跳过其所在节点的编译过程
+                2.可以利用他跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
+         -->
         <!-- 准备好一个容器 -->
         <div id="root">
-            
+            <h2 v-pre>Vue其实很简单</h2>
+            <h2>动态n的值为{{n}}</h2>
+            <button @click="n++">n++</button>
         </div>
     </body>
 
@@ -18,7 +25,7 @@
         const vm = new Vue({
             el: '#root',
             data: {
-                
+                n: 1
             }
         })
     </script>
