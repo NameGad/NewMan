@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴动态案例</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    /*初始化*/
+    *{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    /*设置最外层盒子的样式*/
+    .king{
+        width: 790px;
+        overflow: hidden;
+        background-color: aquamarine;
+        padding: 10px;
+        margin: 0 auto;
+        margin-top: 100px;
+        border-radius: 5px;
+    }
+    /*设置里层各个小盒子样式*/
+    ul li{
+        position: relative;/*???*/
+        float: left;
+        /*必须给li限定高度，否则将会出现li溢出*/
+        width: 80px;
+        height: 80px;
+
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+    .small{
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        /*为了更加丝滑*/
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    /*设置里层大盒子样式*/
+    .big{
+        width: 230px;
+        height: 80px;
+        border-radius: 10px;
+        display: none;
+    }
+    /*设置第一个盒子样式*/
+    .current{
+        width: 230px;
+    }
+    .current .big{
+        display: block;
+    }
+    .current .small{
+        display: none;
+    }
+    /*设置里层盒子的颜色样式*/
+    .red{
+        background-color: red;
+    }
+    .yellow{
+        background-color: yellow;
+    }
+    .green{
+        background-color: green;
+    }
+    .pink{
+        background-color: pink;
+      
+    }
+    .brown{
+        background-color: brown;
+        
+    }
+    .coral{
+        background-color: coral;
+        
+    }
+    .seagreen{
+        background-color: rgb(46, 128, 139);
+    }
+</style>
+<body>
+    <div class="king">
+        <ul>
+            <li class="current">
+                <div class="small red"></div>
+                <div class="big red"></div>
+            </li>
+            <li>
+                <div class="small yellow"></div>
+                <div class="big yellow"></div>
+            </li>
+            <li>
+                <div class="small green"></div>
+                <div class="big green"></div>
+            </li>
+            <li>
+                <div class="small pink"></div>
+                <div class="big pink"></div>
+            </li>
+            <li>
+                <div class="small brown"></div>
+                <div class="big brown"></div>
+            </li>
+            <li>
+                <div class="small coral"></div>
+                <div class="big coral"></div>
+            </li>
+            <li>
+                <div class="small seagreen"></div>
+                <div class="big seagreen"></div>
+            </li>
+        </ul>
+    </div>
+
+<script>
+    $('.king li').mouseenter(function() {
+        //当鼠标经过的li宽度小于245后，同时让里面的小图片淡出，大图片淡入
+        $(this).stop().animate({
+            width:230
+        }).find('.small').stop().fadeOut().siblings('.big').stop().fadeIn();
+        //当鼠标经过的li宽度为245时候，同时让大图片淡出，小图片淡入
+        $(this).siblings('li').stop().animate({
+            width: 80
+        }).find('.small').stop().fadeIn().siblings('.big').stop().fadeOut();
+    });
+    // 鼠标指针经过某个li
+    // $(".king li").mouseenter(function () {
+    //     // 当前小li 宽度变为 224px，同时里面的小图片淡出，大图片淡入
+    //     $(this).stop().animate({
+    //       width: 230
+    //     }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn();
+    //     // 其余兄弟li宽度变为69px，小图片淡入，大图片淡出
+    //     $(this).siblings("li").stop().animate({
+    //       width: 80
+    //     }).find(".small").stop().fadeIn().siblings(".big").stop().fadeOut();
+    //   });
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+     <h1>06遍历的方法</h1>
+     <div class="wrap">
+          <p>第一个p标签</p>
+          <p>第二个p标签</p>
+          <p>第三个p标签</p>
+          <p>第四个p标签</p>
+          <p>第五个p标签</p>
+     </div>
+</body>
+
+ <script>
+     //jQuery的遍历方法
+     $(function(){
+          //原生js
+          var tagP = document.getElementsByTagName("p");
+          for (var i = 0 ; i<=tagP.length;i++){
+               console.log( tagP[i].innerText);
+          }
+          })
+      
+
+          //each( )    为每一个匹配的元素规定要执行的函数 
+          // $(selector).each(function(index,element)){ }
+          // index：选择器的index的位置 索引值
+          // element：当前元素 可以用$(this)代替
+          $("p").each(function(index,ele){
+               // console.log(index);
+               })
+  
+ </script>    
+
+
+</html>

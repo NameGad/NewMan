@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    
+    <title>模态框拖拽效果</title>
+    <style></style>
+</head>
+<body>
+    <!-- 遮罩层效果 -->
+    <div class="login-bg"></div>
+
+    <!-- 模态框 -->
+    <div class="modal">
+        <form>
+            <div class="item1">登陆会员</div>
+            <div class="item2">
+                <div class="username">
+                    <label for="username">用户名：</label>
+                    <input type="text" name="username">
+                </div>
+                <div>
+                    <label for="password">登陆密码：</label>
+                    <input type="password" name="password">
+                </div>
+            </div>
+            <!-- 登陆按钮 -->
+            <div class="item1">
+                <div class="vip">登陆会员</div>
+            </div>
+        </form>
+    <!-- 模态框关闭按钮 -->
+        <div class="close">x</div>    
+    </div>
+
+    <!-- 点击弹出模态框 -->
+    <div class="login-header">《点击弹出模态框》</div>
+
+    <!-- js代码 -->
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        background-color:palegreen;
+        position: absolute;/*设置绝对滴定位*/
+        height: 100px;
+        width: 100px;
+        top: 40px;
+        left: 20px;
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.querySelector("div");
+        //打印出盒子的高度和宽度
+        console.log("盒子的自身高度offsetHeight为："+box.offsetHeight);
+        console.log("盒子的自身宽度offsetWidth为："+box.offsetWidth);
+        //打印出盒子离外边距的宽高
+        console.log("盒子离顶部offsetTop为："+box.offsetTop);
+        console.log("盒子离左边offsetLeft为："+box.offsetLeft);
+        //绑定鼠标指针移动事件
+        box.onmousemove = function(e){
+            //获取盒子的偏移量
+            var left = box.offsetLeft;
+            var top = box.offsetTop;
+            //指针在盒子内部的位置
+            var height = e.pageY - top;
+            var width = e.pageX - left;
+            console.log("x的坐标为"+width+";"+"y的坐标为"+height);
+        };  
+    </script>
+</body>
+</html>

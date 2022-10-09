@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery滑动效果</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    /*初始化内容*/
+    *{
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+    }
+    li{
+        list-style: none;
+    }
+    /*div*/
+    div{
+        overflow: hidden;
+        margin-top: 20px;
+        margin-left: 40%;
+        height: 400px;
+    }
+    .bigNav{
+        margin: 0 auto;
+    }
+    /*设置下拉菜单表头样式*/
+    .bigNav>li{
+        float: left;
+        width: 90px;
+        height: 70px;
+    }
+    .bigNav a{
+        display: block;
+        line-height: 45px;
+        background-color: rgb(245, 185, 195);
+        color: aliceblue;
+    }
+    .bigNav a:hover{
+        background-color: pink;
+    }
+    /*设置下拉菜单下方的li*/
+    .bigNav > li li{
+        display: block;
+        text-align: center;
+        line-height:45px;/*设置字体的行高！*/
+        border: 1px solid pink;
+    }
+    .bigNav >li li:last-child{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .bigNav ul{
+        display: none;
+    }
+</style>
+<body>
+    <div >
+        <ul class="bigNav">
+            <li>
+                <a href="">转化率</a>
+                <ul class="">
+                    <li>转化率</li>
+                    <li>转化率</li>
+                    <li>转化率</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="">点击率</a>
+                <ul>
+                    <li>点击率</li>
+                    <li>点击率</li>
+                    <li>点击率</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="">成交率</a>
+                <ul>
+                    <li>成交率</li>
+                    <li>成交率</li>
+                    <li>成交率</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // 第一种方式
+        // $(".bigNav > li").mouseover(function() {
+        //     $(this).children("ul").stop().slideDown(2000);
+        // });
+        // $(".bigNav > li").mouseleave(function() {
+        //     $(this).children("ul").slideUp(250);
+        // });
+        
+        //第二种方式$(selector).hover(over,out),over相对于mouseover，out相对于mouseleave
+        // $(".bigNav > li").hover(function(){
+        //     $(this).children("ul").slideDown(250)}  
+        // ,function(){$(this).children("ul").slideUp(250)}
+        // );
+
+        /*
+            第三种方法(最简便),hover(over,out),如果里面只有一个“over”或者“out”，则重复执行同一部分
+            鼠标over执行一次，鼠标out执行一次
+        */
+        $(".bigNav > li").hover(function(){
+            console.log('1');
+            $(this).children('ul').stop(true,false).slideToggle(2000)}
+        );
+    </script>
+</body>
+</html>

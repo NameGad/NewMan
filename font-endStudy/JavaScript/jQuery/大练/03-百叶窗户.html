@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="../jquery-3.3.1.min.js"></script>
+     <title>百叶窗效果</title>
+     <style>
+          *{
+               padding: 0;
+               margin: 0;
+          }
+          .wrap{
+               width: 600px;
+               height: 400px;
+               margin: 50px auto;
+               background-color: pink;  
+               position: relative;
+               overflow: hidden;
+          }
+          .pic{
+               width: 598px;
+               height: 398px;
+               position: absolute;
+               border: 1px solid white;
+          }
+          .pic:nth-of-type(1){
+               background: url(../images/car01.jpg) no-repeat center/100% 100%;/*图片居中且填满*/
+               left: 0px;
+          }
+          .pic:nth-of-type(2){
+               background: url(../images/car02.jpg) no-repeat center/100% 100%;/*图片居中且填满*/
+               left: 120px;
+          }
+          .pic:nth-of-type(3){
+               background: url(../images/car03.jpg) no-repeat center/100% 100%;/*图片居中且填满*/
+               left: 240px;
+          }
+          .pic:nth-of-type(4){
+               background: url(../images/car04.jpg) no-repeat center/100% 100%;/*图片居中且填满*/
+               left: 360px;
+          }
+          .pic:nth-of-type(5){
+               background: url(../images/car05.jpg) no-repeat center/100% 100%;/*图片居中且填满*/
+               left: 480px;
+          }
+     </style>
+</head>
+<body>
+     <div class="wrap">
+          <div class="pic"></div>
+          <div class="pic"></div>
+          <div class="pic"></div>
+          <div class="pic"></div>
+          <div class="pic"></div>
+     </div>
+
+<script>
+     //复原函数
+     function back(){
+          for(var i = 0; i<=4;i++){
+               $(".pic").eq(i).stop().animate({"left":120*i+"px"})
+          }
+     }
+     
+     $(".pic").hover(function(){
+     var n = $(this).index()
+     //点击图片本身的及其前面的图片
+     for(var i = 0; i<=n;i++){
+          $(".pic").eq(i).stop().animate({"left":25*i+"px"})
+     }
+     //点击图片后面的图片
+     for(var j = n+1; j<=$(".pic").length;j++){
+          $(".pic").eq(j).stop().animate({"left":500+25*(j-1)+"px"})
+     }
+     },function(){
+          back()
+     })
+
+     // $(".pic").eq(0).hover(function(){
+     //      $(".pic").eq(0).stop().animate({"left":"0px"})
+     //      $(".pic").eq(1).stop().animate({"left":"500px"})
+     //      $(".pic").eq(2).stop().animate({"left":"525px"})
+     //      $(".pic").eq(3).stop().animate({"left":"550px"})
+     //      $(".pic").eq(4).stop().animate({"left":"575px"})
+     // },function(){
+     //      back()
+     // })
+
+     // $(".pic").eq(1).hover(function(){
+     //      $(".pic").eq(0).stop().animate({"left":"0px"})
+     //      $(".pic").eq(1).stop().animate({"left":"25px"})
+     //      $(".pic").eq(2).stop().animate({"left":"525px"})
+     //      $(".pic").eq(3).stop().animate({"left":"550px"})
+     //      $(".pic").eq(4).stop().animate({"left":"575px"})
+     //      console.log($(this).length)
+     // },function(){
+     //      back()
+     // })
+
+     // $(".pic").eq(2).hover(function(){
+     //      $(".pic").eq(0).stop().animate({"left":"0px"})
+     //      $(".pic").eq(1).stop().animate({"left":"25px"})
+     //      $(".pic").eq(2).stop().animate({"left":"50px"})
+     //      $(".pic").eq(3).stop().animate({"left":"550px"})
+     //      $(".pic").eq(4).stop().animate({"left":"575px"})
+     // },function(){
+     //      back()
+     // })
+
+     // $(".pic").eq(3).hover(function(){
+     //      $(".pic").eq(0).stop().animate({"left":"0px"})
+     //      $(".pic").eq(1).stop().animate({"left":"25px"})
+     //      $(".pic").eq(2).stop().animate({"left":"50px"})
+     //      $(".pic").eq(3).stop().animate({"left":"75px"})
+     //      $(".pic").eq(4).stop().animate({"left":"575px"})
+     // },function(){
+     //      back()
+     // })
+
+     // $(".pic").eq(4).hover(function(){
+     //      $(".pic").eq(0).stop().animate({"left":"0px"})
+     //      $(".pic").eq(1).stop().animate({"left":"25px"})
+     //      $(".pic").eq(2).stop().animate({"left":"50px"})
+     //      $(".pic").eq(3).stop().animate({"left":"75px"})
+     //      $(".pic").eq(4).stop().animate({"left":"100px"})
+     // },function(){
+     //      back()
+     // })
+</script>
+</body>
+</html>

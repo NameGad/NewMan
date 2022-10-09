@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取表单</title>
+</head>
+<body>
+    <div></div>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" charset="UTF-8">
+        alert(location.search);
+        //1.去掉search开头中的？
+        var params = location.search.substr(1);
+        alert(params);
+        //2.吧字符串分为数组
+        var arr = params.split('='); //split()方法吧字符串分割为数组
+        alert(arr);
+        //数据写入div中
+        var div = document.querySelector('div');
+        //arr[0]为uname，arr[1]为我们输入的
+        div.innerHTML = arr[1]+'欢迎您';
+    </script>
+</body>
+</html>

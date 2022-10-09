@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            padding: 1px 1px;
+        }
+        /*设置最外层盒子属性样式*/
+        .wrap{
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        /*设置盒子内部属性样式*/
+        .wrap div{
+            float: left;
+            margin: 20px 50px;
+        }
+        /*设置数量框样式*/
+        .numbers{
+            width: 95px;
+        }
+        .numbers input{
+            float: left;
+            text-align: center;
+            border: 1px solid #cacbcb;
+            padding: 2px 8px;
+            width: 30px;
+            height: 17.3px;
+        }
+        .numbers a{
+            float: left;
+            text-align: center;
+            margin: 0;
+            padding: 0.3px 5px;
+            border: 1px solid #cacbcb;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="unitPrice">13</div>
+        <div class="numbers">
+            <a href="#">+</a>
+            <input type="text" value="1">
+            <a href="#">-</a>
+        </div>
+        <div class="tolalPrice">13</div>
+    </div>
+
+<script>
+    //给+号设置单机属性
+    $('a').eq(0).click(function(){
+        var num = $('input:text').val();
+        console.log(num);
+        num++;
+        // console.log($('input').val('input'));
+         $('input:text').val(num);
+         $('.tolalPrice').text(13*num);
+    })
+    //给-号设置样式
+    $('a').eq(1).click(function(){
+        var num = $('input:text').val();
+        console.log(num);
+        //商品数量不能小于
+        if(num == 1){
+            return false;
+        }
+        num--;
+        // console.log($('input').val('input'));
+         $('input:text').val(num);
+         $('.tolalPrice').text(13*num);
+    })
+    //直接修改文本框修改数量
+    $('.numbers input:text').change(function(){
+        //获取改变后的值
+        var newNum = $(this).val();
+        //获取单价
+        var unitPrice = $('.unitPrice').text();
+        //简化版
+        newNum < 1 ? $('input:text').val(1) + alert('数量不能小于1') : $('.tolalPrice').text(unitPrice*newNum);
+
+        //改变后的数值不能小于1
+        // if(newNum < 1){
+        //     $('input:text').val(1);
+        //     alert('数量不能小于1');
+        //     $('.tolalPrice').text(unitPrice);    
+        // }else{
+        //     $('.tolalPrice').text(unitPrice*newNum);
+        // }
+    })
+</script>    
+</body>
+</html>

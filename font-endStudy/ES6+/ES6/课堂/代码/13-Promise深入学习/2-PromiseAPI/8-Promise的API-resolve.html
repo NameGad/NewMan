@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API</title>
+</head>
+<body>
+    <script>
+        let p1 = Promise.resolve(521)
+        console.log(p1);
+        // 如果传入的参数为 非Promise类型的对象，则返回的结果为成功Promise对象
+        // 如果传入的参数为 Promise 对象，则参数的结果决定了 resolve 的结果
+        let p2 = Promise.resolve(new Promise((resolve,reject)=>{
+            // resolve('OK')
+            reject('ERROR')
+        }))
+        p2.catch(reason => {
+            console.log(reason);
+        })
+        console.log('*************************************************');
+        
+        let p3 = Promise.reject(521)
+        console.log('p3',p3);
+        let p4 = Promise.reject(new Promise((resolve,reject)=>{
+            resolve('ok')
+        }))
+        console.log(p4);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="../jquery-3.3.1.min.js"></script>
+     <title>返回顶部</title>
+     <style>
+          *{
+               padding: 0;
+               margin: 0;
+          }
+          body{
+               background: url(../images/wallhaven-l3y82y.jpg) no-repeat left top;
+               background-size: 1580px ;
+               background-attachment: fixed;
+               height: 2000px;
+          }
+          
+          .rocket{
+               height: 100px;
+               width: 30px;
+               background-color: pink;
+               text-align: center;
+               position: fixed;
+               top: 300px;
+               right: 20px;
+               display: none;
+               cursor: pointer;
+          }
+          .rocket:hover{
+               color: aliceblue;
+          }
+     </style>
+</head>
+<body>
+     <h1>返回顶部</h1>
+
+     <div class="rocket">
+          返回顶部
+     </div>
+
+<script>
+     $(window).scroll(function(){
+          if($(window).scrollTop( ) >300 ){
+               $(".rocket").fadeIn()
+          }else{
+               $(".rocket").fadeOut()
+          }
+     })
+     //点击则返回顶部
+     $(".rocket").click(function(){
+          $("html,body").animate({
+               scrollTop:0 },300)
+     })
+</script>
+</body>
+</html>

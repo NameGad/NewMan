@@ -63,12 +63,12 @@
 #### 1.插值语法
 
 - 功能：用于**解析标签体内容。**        
-- 写法：{{xxx}}，xxx是js表达式，切可以直接读取到data中的所以属性。
+- 写法：`{{xxx}}`，xxx是js表达式，切可以直接读取到data中的所以属性。
 
 #### 2.指令语法
 
 - 功能：用于**解析标签**（包括L标签属性、标签体内容、绑定事件......）。
-- 举例：v-bind:href='xxx' 或 简写为 :href='xxx',xxx同样要写js表达式，且可以直接读取到data中的所有属性
+- 举例：`v-bind:href='xxx'` 或 简写为 `:href='xxx'`,xxx同样要写js表达式，且可以直接读取到data中的所有属性
 - 备注：Vue中有很多的指令，且形式都是：v-????,此处我们只是拿v-bind举个例子
 
 
@@ -263,7 +263,7 @@
 
   
 
-### 七、监视属性
+### 七、watch监视属性
 
 #### 一、监视属性：watch
 
@@ -885,7 +885,17 @@
 ### 二十三、**scoped** **样式**
 
 - 作用：让样式在局部生效，防止冲突
+  - 对于某一个组件，如果style添加上scoped属性，给当前子组件的结构中都添加一个data-v xxx自定属性
+  - vue是通过属性选择器，给需要添加的元素添加上样式
+  - 例如：`h3[data-v 7ba5bd90]`
 - 写法：<style scoped>
+- 如果子组件的根标签（拥有父组件当中自定义属性：一样的），如果子组件的根节点，和父组件中书写的样式相同，也会添加上相应的样式
+- 深度选择器：
+  - 作用：如果父组件的样式(scoped),而且还想影响到子组件的样式，像这种情况我们可以使用深度选择器
+  - 深度选择器可以实现样式穿透
+    - 原生CSS: `>>>`
+    - less: ` /deep/`
+    - scss:   ` ::v-deep`
 
 
 
@@ -927,6 +937,7 @@
    2. LocalStorage存储的内容，需要手动清除才会消失
    3. `xxxx.Storage.getItem(xxx)`如果xxx对应的value获取不到，那么getItem的返回值是null
    4. `JSON.parse(null)`结果依然是null
+   4. **不能存储对象**
 
 
 
@@ -1066,7 +1077,7 @@
 ## nextTick
 
 1. 语法：`this.$nextTick(回调函数)`
-2. 作用：**在下一次DOM更新结束后执行其指定的回调**
+2. 作用：**在下一次DOM更新循环结束后，执行其指定的回调**
 3. 什么时候用：**当改变数据后，要基于更新后的新DOM进行操作时，要在nextTick所指定的回调中执行**
 
 
@@ -1077,7 +1088,9 @@
 
 
 
-## Vue脚手架配置代理
+## Vue脚手架配置代理服务器
+
+![image-20220807133345661](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220807133345661.png)
 
 ### 方法一
 
@@ -1108,19 +1121,19 @@
   		proxy: {
   			'/api1':{	//匹配所有以'/api1'开头的请求路径
   			target: 'http://localhost:5000'. //代理目标的基础路径
+              pathRewrite: {'^/api1' : ''} // 重写路径，把'^/api1'开头的设为空，否则影响请求
   			changeOrigin: true,
-  			pathRewrite: {'^/api1' : ''}
   			},
   		proxy: {
   			'/api2':{	//匹配所有以'/api2'开头的请求路径
   			target: 'http://localhost:5000'. //代理目标的基础路径
+              pathRewrite: {'^/api2' : ''}
   			changeOrigin: true,
-  			pathRewrite: {'^/api2' : ''}
   			},
   		}
   	}
   }
-  /*
+  /*	“是否撒谎（默认true）”
   	changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
   	changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:8080
   	changeOrigin默认值为true
@@ -1146,7 +1159,7 @@
 
       ```vue
       父组件中：
-      		<Category>
+      		<Category>  // 这是子组件
       			<div>html结构1</div>
       		</Category>
       子组件中:
@@ -1183,7 +1196,7 @@
 
    3. 作用域插槽：
 
-      1. 理解：**数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。**（games数据在Category组件中，但使用数据所遍历出来的结构由App组件决定）
+      1. 理解 mes数据在Category组件中，但使用数据所遍历出来的结构由App组件决定）
 
       2. 具体编码：
 
@@ -1280,14 +1293,18 @@
    new Vue({
        el:'#root',
        render: h => h(App),
-       st
-   })
+       store
+   })	
    ```
 
 
 
-
 ### 4.基本使用
+
+- **dispatch: 异步操作**
+- **commit: 同步操作**
+
+![vuex](D:\transferFile\systemFile\桌面\import\ljc-learning-notes\笔记\Vue资料（含课件）\资料（含课件）\02_原理图\vuex.png)
 
 1. 初始化数据、配置`actions`、配置`mutations`，操作文件`store.js`
 
@@ -1332,7 +1349,7 @@
 
 3. 组件中修改vuex中的数据：`$store.dispatch('action中的方法名',数据)`或`$store.commit('mutations中的方法名',数据)`
 
-   - 备注：若没有网络请求或其他业务逻辑，组件中野可以越过actions，即不写`dispatch`,直接编写`commit`
+   - 备注：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写`dispatch`,直接编写`commit`
 
 
 
@@ -1351,7 +1368,7 @@
        }
    }
    
-   //创建并保罗store
+   //创建并保s存tore
    export default new Vuex.Store({
        ......
        getters
@@ -1366,6 +1383,8 @@
 
 1. **mapState方法：**用于帮助我们映射`state`中的数据为计算属性
 
+   - **借助mapState生成计算属性，从state中读取数据**
+   
    ```js
    computed: {
    	// 借助mapState生成计算属性：sum、school、subject (对象写法)
@@ -1377,6 +1396,8 @@
    ```
    
 2. **mapGetters方法：**用于帮助我们映射`getters`中的数据为计算属性
+
+   - **借助mapGetters生成计算属性，从getters(用于将state中的数据进行加工)中读取数据**
 
    ```js
    computed: {
@@ -1390,6 +1411,8 @@
 
 3. **mapActions方法：**用于帮助我们生成与`actions`对话的方法，即：包含`$store.dispatch(xxx)`的函数
 
+   -  **借助mapActions生成对应的方法，方法中会调用dispatch去联系actions**
+
    ```js
    methods:{
    	//靠mapActions生成；incrementOdd、incrementWait（对象形式）
@@ -1402,6 +1425,8 @@
 
 4. **mapMutations方法：**用于帮助我们生成与`mutations`对话的方法,即：包含`$store.commit(xxx)`的函数
 
+   - **借助mapMutations生成对应的方法，方法中会调用commit去联系mutations**
+   
    ```js
    methods:{
    	//靠mapActions生成：increment、decrements（对象形式）
@@ -1424,7 +1449,7 @@
 
    ```js
    const countAbout = {
-   	namespaced:true, //开启命名空间
+   	namespaced:true, //开启namespaced:true，该模块就成为命名空间模块了
        state:{x:1},
        mutations:{	...	},
        actions: {	...	},
@@ -1436,7 +1461,7 @@
    }
                   
    const personAbout = {
-   	namespaced:true, //开启命名空间
+   	namespaced:true, //开启namespaced:true，该模块就成为命名空间模块了
        state:{	...	},
        mutations:{	...	},
        actions: {	...	},
@@ -1525,7 +1550,7 @@
    export default router
    ```
 
-4. 实现切换（active-class可配置高亮样式）
+4. 实现切换（a标签）（active-class可配置高亮样式）
 
    ```vue
    <router-link active-class="active" to='/about'>About</router-link>
@@ -1561,7 +1586,7 @@
    	},
    	{
    		path:'/home',
-   		components:Home,
+   		component:Home,
    		children:[	//通过children配置子级路由
    			{
    				path:'news', //此处一定不要写：/news
@@ -1742,11 +1767,10 @@
               id:$route.query.id,
               title:$route.query.title
           }
-      }
-          
+      }        
   }
   ```
-
+  
   
 
 ### 8.`<router-link>`的replace属性
@@ -1813,9 +1837,41 @@
 
 2. 分类：全局守卫、独享守卫、组件内守卫
 
+   ```js
+   ...((to,from,next)=>{
+   	to: 获取到要跳转到的路由信息（to.path）
+       from:获取到来自哪个路由跳转过来的信息
+       next: next() 放行 next(path)放行
+   })
+   ```
+
+   
+
 3. 全局守卫
 
    ```js
+   import  VueRouter from "vue-router"
+   // 路由基本数据   
+   export default new VueRouter({
+   routes:[
+           {
+               name:'xiaoxi',
+               path:'message',
+               component:Message,
+               meta:{isAuth:true,title:'消息'},
+               children:[
+                   {
+                       name:'xiangqing',
+                       // path:'detail/:id/:title', //使用占位符声明接收params参数
+                       path:'detail',
+                       component:Detail,
+                       meta:{isAuth:true,title:'详情'},
+                   }
+              ]
+           }
+       ]
+   })
+   
    //全局前置守卫，初始化时执行、每次路由切换前执行
    router.beforeEach((to,from,next)=>{
        console.log('beforeEach',to,from)
@@ -1845,19 +1901,24 @@
 4. 独享守卫：
 
    ```js
-// 没afterEnter   
-   beforeEnter:(to,from,next) =>{
-       console.log('to:',to,'from:',from)
-       if(to.meta.isAuth){	//判断当前路由是否需要进行权限控制
-           if(localStorage.getItem('student') === 'ljc'){
-               next()
+   {                  
+       path:'news',
+       component:News,
+       meta:{isAuth:true,title:'新闻'},
+       // 没afterEnter   
+       beforeEnter:(to,from,next) =>{
+           console.log('to:',to,'from:',from)
+           if(to.meta.isAuth){
+               if(localStorage.getItem('student') === 'ljc'){
+                   next()
+               }else{
+                   alert('学生名不对，无权限！')
+               }
            }else{
-               alert('学生名不对，无权限！')
+               next()
            }
-       }else{
-           next()
        }
-   }
+   },
    ```
 
 5. 组件内守卫
@@ -1872,12 +1933,45 @@
        
    }
    ```
-
-
+   
+   ```js
+   <script>
+   export default {
+       name:'About',
+       mounted() {
+           console.log('%%%',this.$route);
+       },
+   
+       // 通过路由规则，进入该组件时被调用
+       beforeRouteEnter (to, from, next) {
+           // ...
+           console.log('APP---beforeRouteEnter',to, from);
+           if(to.meta.isAuth){
+               if(localStorage.getItem('student') === 'ljc'){
+                   next()
+               }else{
+                   alert('学生名不对，无权限！')
+               }
+           }else{
+               next()
+           }
+       },
+   
+       // 通过路由规则，离开该组件时被调用
+       beforeRouteLeave (to, from, next) {
+           // ...
+           console.log('APP---beforeRouteLeave',to, from);
+           next()
+       }
+   }
+   </script>
+   ```
+   
+   
 
 ### 13.路由器的两种工作模式
 
-1. 对于一个url来说，什么是hash值？—— #及其后面的内容就是hash值
+1. 对于一个url来说，什么是hash值？—— **#**及其后面的内容就是hash值
 2. hash值不会包含在HTTP请求中，即：hash值不会带给服务器
 3. hash模式：
    1. 地址中永远带着#号，不美观
@@ -1887,3 +1981,498 @@
    1. 地址干净，美观。
    2. 兼容性和hash模式相比略差
    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题
+
+
+
+# Vue2项目实战
+
+## 面试题
+
+### 路由组件
+
+1. **路由传递参数（对象写法）path是否可以结合params参数一起使用？**
+
+   路由跳转传参的时候，对象写法可以是name、path形式，但是需要注意的是，path这种写法不能与params参数一起使用
+
+2. **如何指定params参数可传可不传？**
+
+   - 如果路由要求传递params参数，但是你就不传递params参数，发生一件事情，URL会有问题的
+
+   - **如何指定params参数可以传递或不传递，在配置路由的时候，可以在占位的后加一个问号【?】**
+
+   - ```js
+     path:'/search/:keyword?', //使用占位符声明接收params参数
+     ```
+
+3. **params参数可以传递也可以不传递，但是如果传递是空串，如何解决？**
+
+   - 使用undefined解决：params参数可以传递or不传递（空的字符串）
+
+   - ```js
+     this.$router.push({
+         name:'search',
+         params:{keyword:''|| undefined},
+         query:{k:this.keyword.toUpperCase()}
+     })
+     ```
+
+4. **路由组件能不能传递props数据**
+
+   ```js
+   {
+       path:'/search/:keyword?', //使用占位符声明接收params参数
+       component:Search,
+       meta:{show:true},
+       name:"search",
+       // 路由组件能不能传递props数据
+       // 1.布尔值写法：params参数作为路由组件的参数(需声明接收)
+       props:true,
+       // 2.对象写法
+       props:{a:1,b:2}
+       // 3.函数写法：可以params参数、query参数，通过props传递给路由组件
+       props:($route)=>{({keyword:$route.params.keyword, k:$route.query.k})}
+   },
+   ```
+
+
+
+
+### 防抖&节流
+
+- JS：闭包 + 延迟器
+
+1. **防抖：前面的所有触发都被取消，最后一直执行在规定的时间之后才会触发，也就是说如果连续快速的触发，只会执行一次**
+
+   - 用户操作很频繁，但是只执行一次
+
+   - 使用定时器`SetTimout`
+
+   - lodash插件：https://www.lodashjs.com/
+     - **`_.debounce(func, [wait=0], [options=])`**
+
+   
+
+2. **节流：在规定时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发**
+
+   - 用户操作很频繁，但是规定的时间只执行一定次数操作【可以给浏览器充裕的时间解析代码】
+
+   - ### `_.throttle(func, [wait=0], [options=])`
+
+   - ```js
+     button.onclick = _.throttle(function(){
+     	// 节流：5s内只执行一次
+     	count++;
+     	span.innerHTML = count;
+     	console.log('执行')
+     }，5000)
+     ```
+
+     
+
+### 跨域
+
+
+
+### 组件通信方式
+
+- props：用于父子组件通信
+- 自定义事件：@on @emit 可以实现子给父通信
+- 全局事件总线 $bus  **全能**
+- pubsub-js：vue当中几乎不用 **全能**
+- 插槽
+- vuex
+
+
+
+### Promise
+
+- 支持链式调用，可以解决回调地狱的问题
+
+
+
+### 深拷贝与浅拷贝
+
+- <a href="https://blog.csdn.net/zhouyuzhu666/article/details/120516317?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166342919616782414995781%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166342919616782414995781&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-120516317-null-null.142^v47^control_1,201^v3^control_2&utm_term=forof%E3%80%81forin%E3%80%81foreach%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187">学习链接</a>
+
+- 
+
+### 数组应用
+
+- <a href="https://www.w3school.com.cn/jsref/jsref_obj_array.asp">数组参考手册</a>
+
+#### indexOf( )
+
+- 数组去重
+
+  - indexOf
+
+  - ```js
+    // 数组去重
+    if(this.searchParams.props.indexOf(props) == -1){  // 没有
+      this.searchParams.props.push(props)
+    }
+    ```
+
+#### delete( )
+
+- `delete` 运算符来*删除*：使用 `delete` 会在数组留下未定义的空洞。请使用 `pop()` 或 `shift()` 取而代之。
+
+- ```js
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  delete fruits[0];           // 把 fruits 中的首个元素改为 undefined
+  ```
+
+  
+
+#### splice( )
+
+- `splice()` 方法可用于向数组添加新项(拼接数组)
+
+  - ```js
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+    ```
+
+  - <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_js_array_splice">测试一下</a>
+
+  - 第一个参数（2）定义了应添加新元素的位置（拼接）。
+
+    第二个参数（0）定义应删除多少元素。
+
+    其余参数（“Lemon”，“Kiwi”）定义要添加的新元素。
+
+    
+
+- `splice()` 方法返回一个包含已删除项的数组：
+
+  - ```js
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 2, "Lemon", "Kiwi");
+    ```
+
+  - <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_js_array_splice_return">测试一下</a>
+
+
+
+- `splice()` 删除元素 ：
+
+- 通过聪明的参数设定，您能够使用 `splice()` 在数组中**不留“空洞”**的情况下移除元素：
+
+  - ```js
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);        // 删除 fruits 中的第一个元素
+    ```
+
+  - <a href="https://www.w3school.com.cn/tiy/t.asp?f=eg_js_array_splice_remove">测试一下</a>
+
+  - 第一个参数（0）定义新元素应该被*添加*（接入）的位置。
+
+    第二个参数（1）定义应该*删除多个*元素。
+
+    其余参数被省略。没有新元素将被添加。
+
+
+
+#### every( )
+
+- 遍历数据原理：只要数组里面isCheck属性都为1 ==》true；一个不是为1==》false
+
+- ```js
+  let isCheck = this.cartInfoList.every(item => item.isChecked == 1) // return true || false
+  ```
+
+
+
+#### find( )
+
+- 查找数组中符合条件的元素返回，为最终结果
+
+- ```js
+  return this.addressInfo.find(item => item.isDefault == '1')
+  ```
+
+  
+
+#### some()
+
+- 判断是否重复
+
+- ```js
+  let isReapet = this.attrInfo.attrValueList.some(item =>{ 
+      if(row !== item){ // 先排除自身
+        return row.valueName == item.valueName
+      }
+    })
+  ```
+
+
+
+#### filter()
+
+- 数组过滤，return true留下，false过滤掉
+
+
+
+
+
+### 字符串方法
+
+#### split( )
+
+- split() 方法用于把一个字符串分割成字符串数组。
+
+- ```js
+  var str="How are you doing today?";
+  var n=str.split(" "); // [How,are,you,doing,today]
+  ```
+
+  
+
+### 正则式
+
+- 去除所有空格
+  - row.valueName = row.valueName.replace(/\s*/g,"") // 去除所有空格
+
+
+
+## 笔记
+
+### 路由
+
+1. 编程式路由跳转到当前路由（参数不变），多次执行会抛出NavigationDuplicated的警告错误
+
+   - 路由跳转有两种形式：声明式导航、编程式导航
+   - 声明式导航没有这类问题，因为vue-router底层已经处理好了
+
+2. 为什么编程式路由导航进行路由跳转时，会出现这种警告
+
+   - 'vue-router':"^3.5.4"：最新的vue-router引入promise
+
+3. 通过给push方法传递相应的成功、失败回调函数，可以捕获到当前错误，可以解决
+
+4. 通过底层代码，可以实现错误解决
+
+   - ```js
+     this.$router.push({name:'search', params:{keyword:this.keyword}, query:{k:this.keyword.toUpperCase()}}, ( )=>{ }, ( )=>{ })
+     ```
+
+   - 这种写法：治标不治本，将来在别的组件中的push|replace，编程式导航还是有类似错误
+
+5. 完美解决，可以重写push方法，一劳永逸
+
+   - ```js
+     // 重写push|replace
+     // 第一个参数：告诉原来push方法，你往哪里跳转（传递哪些参数）
+     VueRouter.prototype.push = function (location, resolve, reject) {
+         if (resolve && reject) {
+             // call || apply区别
+             // 相同点：都可以调用函数函数一次，都可以篡改函数的上下文移除（修改this指向）
+             // 不同点：call与apply传递参数：call传递参数用逗号隔开；apply方法执行，传递数组
+             originPush.call(this, location, resolve, reject)
+         } else {
+             originPush.call(this, location, () => { }, () => { })
+         }
+     }
+     
+     VueRouter.prototype.replace = function (locations, resolve, reject) {
+         if (resolve && reject) {
+             originReplace.call(this, location, resolve, reject);
+         } else {
+             originReplace.call(this, location, () => { }, () => { })
+         }
+     }
+     ```
+
+
+
+### axios二次封装
+
+- XMLHttpRequest、fetch、JQ、axios
+
+1. 为什么需要进行二次封装axios？
+   - 请求拦截器：请求拦截器，可以在发请求之前处理一些业务
+   - 响应拦截器：当服务器数据返回以后，可以处理一些事情
+2. 在项目当中经常API文件夹【axios】
+   - 接口当中：路径都带有/api,因此设置：baseURL:"/api",默认携带了api
+
+
+
+
+
+## 实用插件
+
+### nprogress进度条
+
+- 浏览器刷新时，上方出现进度条
+
+```js
+// 引入进度条
+import nprogress from "nprogress";
+// start:进度条开始 done:进度条结束
+// 引入进度条样式
+import "nprogress/nprogress.css"
+```
+
+
+
+### MookJS前端假数据
+
+- 使用步骤：
+  1. 在项目当中src文件夹中创建mock文件夹
+  2. 准备JSON数据（mock文件夹中创建响应的JSON文件）-----格式化一下，别留空格（负责跑不起来）
+  3. 把mock数据需要的图片放置到public文件夹中【public文件夹在打包的时候，会把相应的资源原封不动打包到dist文件夹中】
+  4. 创建mockServe.js通过mockjs插件实现模拟数据
+  5. mockServer.js文件在入口文件中引入（至少需要执行一次，才能模拟数据）
+
+
+
+### Swiper轮播图
+
+- 移动端|PC端
+- https://www.swiper.com.cn/usage/index.html
+- 实用步骤
+  - 1.首先加载插件，需要用到的文件有swiper-bundle.min.js和swiper-bundle.min.css文件，不同[Swiper版本](https://www.swiper.com.cn/about/us/index.html#version-different)用到的文件名略有不同。可下载[Swiper文件](https://www.swiper.com.cn/download/index.html#file1)或使用[CDN](https://www.swiper.com.cn/cdn/index.html)
+  - 2.添加HTML内容。Swiper7的默认容器是'.swiper'，Swiper6之前是'.swiper-container'。
+  - 3.你可能想要给Swiper定义一个大小，当然不要也行。
+  - 4.初始化Swiper。
+
+
+
+### vue-lazyload图片懒加载
+
+- 网站：npm 中
+
+- 使用步骤：
+
+  1. 下载插件
+
+     npm i vue-lazyload@1.3.3 -S
+
+  2. 引入插件
+
+     import VueLazyload from 'vue-lazyload'    （在main.js中）
+
+     import dog from '@/assets/1.gif'     （引入图片）
+
+  3. 使用插件
+
+     Vue.use(VueLazyload,{
+
+      // 懒加载默认图片
+
+      loading:dog
+
+     })
+
+
+
+### lodash/cloneDeep(深拷贝)
+
+- import cloneDeep from 'lodash/cloneDeep'
+
+
+
+
+
+# Vue2原理
+
+## 组件高级通信
+
+### 组件通信方式
+
+1. props
+
+   - 适用的场景：父子组件通信
+   - 注意事项：
+     - 如果父组件给子组件传递数据（函数）；本质其实是子组件给父组件传递数据
+     - 如果父组件给子组件传递数据（非函数）；本质就是父组件给子组件传递数据
+   - 书写方式：3种
+     - ['todos'],{type:Array},{type:Array,default:[]}
+     - 小提示：路由props
+     - 书写形式：布尔值，对象，函数形式
+
+2. 自定义事件
+
+   - 适用场景：子组件给父组件传递数据
+   - $on与$emit
+
+3. 全局事件总线$bus
+
+   - 适用场景：万能
+   - Vue.prototype.$bus = this
+
+4. pubsub-js,在React框架中使用的比较多。（发布与订阅）
+
+   - 适用场景：万能
+
+5. Vuex
+
+   - 适用场景：万能
+
+6. 插槽
+
+   - 适用场景：父子组件通信-------（一般结构）
+   - 分类：默认插槽，具名插槽，作用域插槽
+
+   
+
+### v-model
+
+- v-model它是Vue框架中指令，他主要结合表单元素一起使用（文本框，复选框，单选等）
+
+  他主要的作用是收集表单数据
+
+  - 实现原理：value与input实现实现，**还可以通过v-model实现父子组件数据同步**
+
+
+
+### 属性修饰符sync
+
+- 可以实现父子组件数据同步
+- :money.sync，代表父组件给子组件传递props【money】，给子组件绑定一个自定义事件【update:money】
+
+
+
+### $attrs与$listeners
+
+- 两者是组件实例的属性，可以获取父组件给子组件传递props与自定义事件
+- 必须严格使用：
+  - v-bind=‘$attrs’
+  - v-on='$listerners'
+- $attrs
+  - 属于组件的一个属性，可以获取到父组件传递过来的props数据
+  - 对于子组件而言，父组件给得数据可以利用props接受，都是需要注意，如果子组件通过props接受的属性，在$attrs属性当中是获取不到的
+- $listeners
+  - 属于组件实例自身的一个属性，可以获取到父组件传递给子组件传递的自定义事件
+
+
+
+### $children与$parent
+
+- ref可以获取到某一个组件，子组件
+- $children组件实例的属性，可以获取到当前组件的全部子组件【数组】
+- $parent组件实例的属性，可以获取到当前组件的父组件，进而可以操作父组件的数据与方法
+
+
+
+### 混入mixin
+
+- 如果项目当中出现很多结构类似功能，想要组件复用
+- 如果项目当中很多的组件JS业务逻辑类似，想到mixin。【可以把多个组件JS部分重复、相似地方】
+
+
+
+### 插槽
+
+- 插槽：可以实现父子组件通信（通信的结构）
+- 分类：
+  - 默认插槽
+  - 具名插槽
+  - 作用域插槽：子组件的数据来源父组件，但是子组件决定不了他的外观和结构
+
+
+
+
+
+
+

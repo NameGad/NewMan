@@ -1,0 +1,81 @@
+/* 初始化 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 点击弹出遮罩层部分 */
+.login-header{
+    text-align: center;
+    font-size: 30px;
+    
+    /* 没有百分之100，有absolute则不能居中显示 */
+    position: absolute;
+    width: 100%;
+}
+
+/* 模态框部分*/
+.modal{
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);/*？？？*/
+    z-index: 999;
+    cursor: move;/*改变鼠标指针*/
+    display: none;
+}
+.modal form{/*表单结构*/
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.modal form .item1{ /*表单标题*/
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal form .item2{/*表单输入框*/
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.username{/*让上下输入框对齐*/
+    margin-left: 16px;
+}
+.vip{/*登陆按钮*/
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px 30px;
+    background-color: pink;
+    color: white;
+}
+.close{/*关闭按钮*/
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: 1px solid #ccc;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: pink;
+}
+/*遮罩层部分*/
+.login-bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    display: none;
+}

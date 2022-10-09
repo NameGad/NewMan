@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQeury内容操作</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <button>获取innerHTML</button>
+    <button>获取innerText</button>
+    <button>获取输入框内容</button>
+    <button>设置innerHTML</button>
+    <button>设置innerText</button>
+    <button>设置输入框内容</button>
+    <button></button>
+    <button></button>
+    <button></button>
+
+    <div class="box">
+        <h2>html(),text(),val()</h2>
+        <h3>三合村</h3>
+        <span>这是一个文本</span>
+        <br>
+        请输入内容<input type="text" value="请输入内容">
+    </div>
+
+<script>
+    //jQuery的内容
+
+    //html() 获取包含标签和内容
+    $('button:eq(0)').click(function(){
+        console.log($('.box').html());
+    });
+    //text() 获取文本
+    $('button:eq(1)').click(function(){
+        console.log($('.box').text());
+    })
+    //var() 获取表单元素的value值
+    $('button:eq(2)').click(function(){
+        console.log($(':text').val()); //:text过滤选择器 input:text
+    })
+
+    //html('content') 设置标签
+    $('button:eq(3)').click(function(){
+        console.log($('.box').html('<h1>这是一个h1标签</h1>'));
+    });
+    //text() 设置纯文本
+    $('button:eq(4)').click(function(){
+        console.log($('.box').text('<h1>这是一个h1标签</h1>'));
+    });
+    //var() 设置表单元素的value值
+    $('button:eq(5)').click(function(){
+        console.log($(':text').val('hello')); //:text过滤选择器 input:text
+    })
+</script>
+</body>
+</html>

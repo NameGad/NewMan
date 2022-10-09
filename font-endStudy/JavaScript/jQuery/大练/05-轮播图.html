@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jquery-3.3.1.min.js"></script>
+        <title>05轮播图</title>
+        <style>
+                *{
+                        padding: 0;
+                        margin: 0;
+                }
+                
+                .wrap{
+                        height: 400px;
+                        width: 600px;
+                        background-color: antiquewhite;
+                        margin: 100px auto;
+                        overflow: hidden;
+                        position: relative;
+                        /* 指针边手 */
+                        cursor: pointer;
+                }
+                ul{
+                        height: 400px;
+                        width: 600px;
+                }
+                .list-ul li{
+                        list-style: none;
+                        height: 400px;
+                        width: 600px;
+                        /* 指针边手 */
+                        cursor: pointer;
+                }
+                /*箭头按钮*/
+                .arrows{
+                        text-align: center;
+                        line-height: 80px;
+                        font-size: 30px;
+                        text-decoration: none;
+                        background-color: rgb(221, 233, 233);
+                        color: rgb(250, 220, 181);
+                        opacity: 0.6;
+                        /* 指针边手 */
+                        cursor: pointer;
+                }
+                .arrows:hover{
+                        opacity: 1;
+                        color: rgb(247, 204, 140);
+                }
+                /*左箭头*/
+                .arrows-left{
+                        position:absolute;
+                        top: 50%;
+                        left: 0%;
+                        height:80px;
+                        width: 30px;
+                        margin-top: -40px;
+                }
+                /*右箭头*/
+                .arrows-right{
+                        position:absolute;
+                        top: 50%;
+                        right: 0%;
+                        height:80px;
+                        width: 30px;
+                        margin-top: -40px;
+                }
+                /*图片下方按钮*/
+                .button_wrap{
+                        background-color: rgb(221, 233, 233);
+                        height: 40px;
+                        width: 200px;
+                        position: absolute;
+                        margin-left :-100px ;
+                        top: 85%;
+                        left: 50%;
+                        border-radius: 15px;
+                }
+                .button_wrap li{
+                        float: left;
+                        height: 30px;
+                        width: 30px;
+                        list-style: none;
+                        border-radius: 25px;
+                        margin: 5px 10px;
+                        background-color: rgb(84, 90, 90);
+                }
+                .button_wrap .green{
+                        background-color: aquamarine;
+                }
+
+                .list-ul li:nth-of-type(1){
+                        background: url(../images/car01.jpg) no-repeat center/100% 100%;
+                }
+                .list-ul li:nth-of-type(2){
+                        background: url(../images/car02.jpg) no-repeat center/100% 100%;
+                }
+                .list-ul li:nth-of-type(3){
+                        background: url(../images/car03.jpg) no-repeat center/100% 100%;
+                }
+                .list-ul li:nth-of-type(4){
+                        background: url(../images/car04.jpg) no-repeat center/100% 100%;
+                }
+        </style>
+</head>
+<body>
+       <div class="wrap">
+               <!-- 图片空间-->
+                <ul class="list-ul">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                </ul>
+
+                <!-- 左右箭头 -->
+                <!-- <a  class="arrows arrows-left">&lt;</a>
+                <a  class="arrows arrows-right">&gt;</a> -->
+                <div  class="arrows arrows-left">&lt;</div>
+                <div  class="arrows arrows-right">&gt;</div>
+
+                <!-- 图片下饭按钮 -->
+                <div class="button_wrap">
+                        <ul class="button_list">
+                                <li class="green"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                </div>
+       </div> 
+
+<script>
+        //点击小圆圈事件
+        $('.button_list li').click(function(){
+                var index = $(this).index()
+                $(".list-ul li").eq(index).fadeIn().siblings('li').fadeOut(0);
+                 //变换下边圆点
+                $('.button_list li').eq(index).addClass('green').siblings('li').removeClass('green')
+        })
+        //设置函数
+        function change(index){
+                $(".list-ul li").eq(index).fadeIn().siblings('li').fadeOut(0);
+                 //变换下边圆点
+                $('.button_list li').eq(index).addClass('green').siblings('li').removeClass('green')
+        }
+        //右箭头点击事件
+        var index =  0;
+        $('.arrows-right').click(function(){
+                index == 3? index=0:index++;
+                change(index);
+        })
+        //左箭头点击事件
+        $('.arrows-left').click(function(){
+                index == 0? index=3:index--;
+                change(index);
+        })
+        //设置定时器，自动切换
+        var  times=setInterval(function(){
+                index == 3 ? index=0 : index++;
+                change(index);
+        },2000);
+        //图片静止
+        // $('.wrap').hover(function(){
+        //         clearInterval(times);
+        // },function(){
+        //         var  times= setInterval(function(){
+        //         index == 3? index=0:index++;
+        //         change(index);
+        // },2000)
+        // })
+        $('.wrap').mouseover(function(){
+                clearInterval(times);
+        });
+        $('.wrap').mouseleave(function(){
+                var  times= setInterval(function(){
+                index == 3 ? index=0 : index++;
+                change(index);
+        },2000)
+        });
+        // $('.arrows').hover(function(){
+        //         clearInterval(times);
+        // },function(){
+        //         var  times= setInterval(function(){
+        //         index == 3? index=0:index++;
+        //         change(index);
+        // },2000)
+        // })
+</script>
+</body>
+</html>

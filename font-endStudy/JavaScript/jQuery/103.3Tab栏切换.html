@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQueryTab栏切换</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .tab{
+            border: 1px solid;
+            width: auto;
+            margin: 100px;
+            
+        }
+        .tab,.tab_list{
+            overflow: hidden;
+            width: auto;
+        }
+        .tab_list{
+            background-color: #bbb;
+            border-bottom:1px solid black;
+        }
+        .tab_list>li{ /*子级选择器*/
+            float: left;
+            list-style: none; /*去掉列表前面的小点*/
+            padding: 10px 30px;
+            text-align: center;
+        }
+        li:hover{
+            background-color: brown;
+            color: aliceblue;
+        }
+        /*点击后的li呈现的颜色*/
+        .current{
+            background-color: brown;
+            color: aliceblue;
+        }
+        /*隐藏标签下方的内容*/
+        .tab_con{
+            height: 200px;
+        }
+        .items{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <li>人生介绍</li>
+            <li>人生目标</li>
+            <li>大二下学期目标</li>
+            <li>大二暑假目标</li>
+            <li>毕业目标</li>
+        </div>
+        <div class="tab_con">
+            <div class="items">人生介绍</div>
+            <div class="items">人生目标</div>
+            <div class="items">大二下学期目标</div>
+            <div class="items">大二暑假目标</div>
+            <div class="items">毕业目标</div>
+        </div>
+    </div>
+    <!-- JavaScript代码 -->
+    <script>
+        $(".tab_list > li").mousedown(function(){
+            //获取li标签的索引
+            var index = $(this).index();
+            console.log(index);
+            //给点击的li添加类current，同时移除其他兄弟li的current类
+            $(this).toggleClass('current').siblings(".tab_list > li").removeClass('current');
+            //把li的索引同时队友下方显示栏div的索引,显示队友的items，其余的隐藏
+            $(".items").eq(index).css('display','block').siblings().css('display','none');
+    //优解  $(".items").eq(index).show().siblings().hide();    
+            
+        });
+    </script>
+</body>
+</html>

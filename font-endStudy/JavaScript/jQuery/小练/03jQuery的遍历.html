@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03jQeury的遍历</title>
+    <style>
+        #wrap{
+            position: relative;
+        }
+    </style>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h2>03jQuery的遍历</h2>
+    <h4>所谓遍历(Traversal)，是指沿着某条搜索路线，
+        依次对树（或图）中每个节点均做一次访问。访问结点所做的操作依赖于具体的应用问题，
+         具体的访问操作可能是检查节点的值、更新节点的值等。不同的遍历方式，其访问节点的顺序是不一样的。
+         遍历是二叉树上最重要的运算之一，是二叉树上进行其它运算之基础。
+         当然遍历的概念也适合于多元素集合的情况，如数组。</h4>
+    <div id="wrap">
+        <div class="box">
+            <p class="text text1">这是第一个文本</p>
+            <p class="text text2">这是第二个文本</p>
+            <p class="text text3">这是第三个文本</p>
+            <p class="text text4"><span class="wenben">这是第一个span标签</span></p>
+        </div>
+
+        <ul class="list">
+            <li>列表01</li>
+            <li>列表02</li>
+            <li>列表03</li>
+        </ul>
+    </div>
+
+<script>
+    //03jQuery的遍历
+    $(function(){
+        //遍历:根据某种关系，沿某条路线移动
+        //根据当前的元素（遍历开始的位置）与其他元素的关系查找所需要的HTML元素
+        //for(var i = 0; i<.length;i++){}
+
+        //父亲元素
+        //祖先元素
+        // parent() 返回直接附件元素
+        console.log($("span").parent());
+        console.log($(".wenben").parents()); //遍历所有祖先
+        console.log($('.wenben').parents('.box'));
+        //parentsUntil("条件") 返回两个元素之间的所有元素祖元素
+        console.log($('.wenben').parentsUntil("html"));
+        /*closest( expr|boject|element)  从本身元素开始，逐级向上级元素匹配，并返回最先匹配的元素
+            和parents( )差不多但是，closest( )能放回自身元素!
+        */
+        console.log($('p:eq(0)').closest('.text'));
+        //offsetParent()返回第一个匹配元素用于定位的父节点
+        //这返回父元素中第一个其position设为relative或absolute的父元素，此方法仅对可见元素有效
+        console.log($(".box").offsetParent());
+
+
+        //后代元素
+        //children("条件") 返回所有的直接（亲代）子元素 可以添加参数，进行过滤
+
+        //find("条件") 返回所有条件的后代元素   条件不能为空!
+        // console.log(".text1").find("span");
+
+        //兄弟元素
+        //siblings("条件") 返回所有同胞元素，可以添加条件进行过滤
+        console.log($(".text1").siblings());
+        //next( ) 返回所选元素的下一个同胞元素
+        console.log($(".text1").next());
+        console.log($(".text1+p"));
+        //nextAll( ) 返回所选元素的后面的所有同胞元素   可以添加条件进行过滤
+        console.log($(".text1").nextAll());
+        //nextUntil 返回两个同胞元素之间的元素
+        console.log($(".text1").nextUntil(".text4"));
+        //prev( ) 返回所选元素的上一个同胞元素
+        console.log($(".text3").prev());
+        //prevAll( ) 返回所选元素的前面的所有同胞元素  可以添加条件进行过滤
+        console.log($(".text4").prevAll());
+        //prevUntil 返回两个同胞元素之间的元素
+        console.log($(".text4").prevUntil(".text1"));
+    })
+</script>
+</body>
+</html>

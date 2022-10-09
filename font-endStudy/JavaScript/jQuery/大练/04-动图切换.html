@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>动图切换</title>
+        <script src="../jquery-3.3.1.min.js"></script>
+<style>
+        *{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                box-sizing: border-box;
+        }
+        .wrap{
+                width: 600px;
+                height: 600px;
+                margin: 100px auto;
+                overflow: hidden;
+        }
+        /*大图片div样式*/
+        .big_pic{
+                width: 550px;
+                height: 400px;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 2px solid pink;
+        }
+        .big_pic ul{
+                height: 400px;
+                width: 550px;
+        }
+        .big_pic ul li{
+                height: 400px;
+                width: 550px;
+        }
+        /*小图片样式*/
+        .min_pic{
+                width: 598px;
+                height: 120px;
+                margin: 50px auto;
+        }
+        .min_pic_list li{
+                float: left;
+                width: 120px;
+                height: 100px;
+                margin-left: 22px;
+               
+        }
+        .min_pic_list li:hover{
+                border: 2px  solid black ;
+        }
+        .black{
+                border: 1px solid black;
+        }
+        .black{
+                border: 2px  solid black ;
+        }
+        /*大图片*/
+        .big_pic_list li:nth-of-type(1){
+                background: url(../images/lol02.jpg) center/100% 100%;
+        }
+        .big_pic_list li:nth-of-type(2){
+                background: url(../images/lol03.webp) center/100% 100%;
+        }
+        .big_pic_list li:nth-of-type(3){
+                background: url(../images/lol04.webp) center/100% 100%;
+        }
+        .big_pic_list li:nth-of-type(4){
+                background: url(../images/lol05.webp) center/100% 100%;
+        }
+        /*小图片显示区*/
+        .min_pic_list li:nth-of-type(1){
+                background: url(../images/lol02.jpg) center/100% 100%;
+        }
+        .min_pic_list li:nth-of-type(2){
+                background: url(../images/lol03.webp) center/100% 100%;
+        }
+        .min_pic_list li:nth-of-type(3){
+                background: url(../images/lol04.webp) center/100% 100%;
+        }
+        .min_pic_list li:nth-of-type(4){
+                background: url(../images/lol05.webp) center/100% 100%;
+        }
+</style>
+</head>
+<body>
+        <div class="wrap">
+                <!--上方大图片-->
+                <div class="big_pic">
+                        <ul class="big_pic_list">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                </div>
+
+                <!--下方四个小图片-->
+                <div class="min_pic">
+                        <ul class="min_pic_list">
+                                <li class="black"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                </div>
+        </div>
+
+<script>
+       $(".min_pic_list li").click(function(){
+                var n = $(this).index()
+                $(".big_pic_list li").eq(n).fadeIn().siblings().fadeOut(100)
+       })
+</script>        
+</body>
+</html>

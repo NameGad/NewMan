@@ -1,0 +1,78 @@
+// 设置变量
+$bg-color: #b7d4a8;
+
+// 清除默认样式
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:  #f1c5f1;
+    font: bold 20px "Courier";
+}
+// 设置主容器样式
+.container{
+    width: 360px;
+    height: 420px;
+    background-color:$bg-color;
+    margin: 80px auto;
+    border: 10px solid black;
+    border-radius: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+
+    div{
+        width: 300px;
+    }
+    // 游戏的屏幕
+    .screen{
+        height: 300px;
+        margin-top: 20px;
+        border: 1px solid black;
+        position: relative;
+        // 设置蛇的样式
+        .snake{
+            div{
+                height: 10px;
+                width: 10px;
+                background-color: rgb(0, 0, 0);
+                border: 1px solid $bg-color;
+                position: absolute;
+            }
+        }
+        // 食物的样式
+        .food{
+            height: 10px;
+            width: 10px;
+            // background-color: rgb(232, 151, 151);
+            border: 1px solid $bg-color;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-content: space-between;
+            
+            div{
+                width: 3.5px;
+                height: 3.5px;
+                background-color: rgb(255, 36, 36);
+                border-radius: 5px;
+            }
+        }
+    }
+    .footer{
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div{
+            width: auto;
+        }
+    }
+}

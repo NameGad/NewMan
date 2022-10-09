@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery遍历</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <input type="checkbox"></input>
+    </div>
+    <div>
+        <ul>
+            <li><button class="button1">attr()-设置自定义属性</button></li>
+            <li><button class="button2">attr()-获取属性</button></li>
+        </ul>
+        <ul>
+            <li><button>prop()获取元素固有属性</button></li>
+            <li><button>prop()设置元素的固有属性</button></li>
+        </ul>
+    </div>
+    <a href="#" class="praise">1213123</a>
+<script>
+    $(".praise").attr("disabled",true).css("pointer-events","none"); 
+    /*
+        attr() 获取或设置自定义属性
+        $().attr('属性名')  获取属性值
+        $().attr('属性'.'属性值') 设置属性值
+    */
+    $('.button1').click(function(){
+        console.log($(this).attr('index',1));
+    });
+    //attr() 获取属性
+    $('button').eq(1).click(function(){
+        console.log($(this).attr('index','class'));
+    });
+
+    //$().prop('属性名') 获取固有属性
+    $('ul').eq(1).children().eq(0).click(function(){
+        console.log($('input').prop('checked'));
+    })
+    //$().prop('属性','属性值') 设置固有属性
+    $('ul:eq(1)').children('li').eq(1).click(function(){
+      //  $('input').prop('checked') = "false" ? $('input').prop('checked','true') : $('input').prop('checked','flase'); 
+        console.log($('input').prop('checked',true));
+    })
+</script>
+</body>
+</html>

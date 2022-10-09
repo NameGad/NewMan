@@ -1,0 +1,36 @@
+/* *{
+    padding: o;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+/* 图片预览区 */
+.preview_img{
+    position: absolute;
+    border: 1px solid black;
+}
+
+/*放大镜东东*/
+.mask{
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    opacity: 0.5;
+    position: absolute;
+}
+/*大图片外部盒子*/
+.big{
+    display: none;
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    left: 600px;
+    top: 0;
+    border: 2px solid black;
+    overflow: hidden;
+}
+/* 大图片 */
+.bigImg{
+    position: absolute;
+}

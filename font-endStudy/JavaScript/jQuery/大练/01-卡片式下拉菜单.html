@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>卡片式下拉菜单</title>
+     <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<style>
+     /*初始化*/
+     *{
+          padding: 0;
+          margin: 0;
+          list-style: none;
+     }
+     /*最最最外层盒子样式*/
+     .wrap{
+          margin: 100px auto;
+          width: 252px;
+     }
+     /*下拉菜单顶部标签头部样式*/
+     .listTop{
+          border: 1px rosybrown solid;
+          line-height: 32px;
+          padding-left: 10px;
+          cursor: pointer;
+          /*设置箭头图片样式*/
+          background: url(../images/right.png) 211.5px  no-repeat;
+          background-size: 20px;
+     }
+     .listTop:hover{
+          background-color: rgb(199, 199, 255);
+          color: white;
+     }
+     /*下拉菜单的li标签样式*/
+     ul li{
+          text-align: center;
+          color: pink;
+          line-height: 30px;
+          cursor: pointer;
+          border-left: 1px rosybrown solid;
+          border-right: 1px rosybrown solid;
+     }
+     ul:last-child{
+          border-bottom: 1px rosybrown solid;
+     }
+     li:hover{
+          background-color: pink;
+          color: whitesmoke;
+     }
+     /*将ul标签内容隐藏*/
+     ul{
+          display: none;
+     }
+
+     .listImg{
+          background: url(../images/down.png) 211.5px  no-repeat;
+          background-size: 20px;
+     }
+</style>
+<body>
+     <div class="wrap">
+          <div class="listTop listTop1">新闻中心</div>
+          <ul>
+               <li>添加新闻</li>
+               <li>了解新闻</li>
+               <li>新闻管理</li>
+               <li>重大新闻</li>
+               <li>大众新闻</li>
+          </ul>
+
+          <div class="listTop listTop2">新闻中心</div>
+          <ul>
+               <li>添加新闻</li>
+               <li>了解新闻</li>
+               <li>新闻管理</li>
+               <li>重大新闻</li>
+               <li>大众新闻</li>
+          </ul>
+
+          <div class="listTop listTop3">新闻中心</div>
+          <ul>
+               <li>添加新闻</li>
+               <li>了解新闻</li>
+               <li>新闻管理</li>
+               <li>重大新闻</li>
+               <li>大众新闻</li>
+          </ul>
+
+          <div class="listTop listTop4">新闻中心</div>
+          <ul>
+               <li>添加新闻</li>
+               <li>了解新闻</li>
+               <li>新闻管理</li>
+               <li>重大新闻</li>
+               <li>大众新闻</li>
+          </ul>
+     </div>
+
+<script>
+     $(".listTop").click(function(){
+          $(this).next().   stop().slideToggle().siblings("ul").slideUp(250);
+          //各下拉菜单顶部的箭头切换
+          $(this).toggleClass("listImg").siblings("div").removeClass("listImg")
+     })
+
+     console.log(num)
+     var num = 10
+</script>
+</body>
+</html>

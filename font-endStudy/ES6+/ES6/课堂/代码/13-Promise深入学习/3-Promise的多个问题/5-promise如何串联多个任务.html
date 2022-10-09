@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 关键问题 - 如何串联多个任务</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve,reject)=>{
+            resolve('第一个OK')
+        })
+        let result =  p.then(value => {
+            return new Promise((resolve,reject)=>{
+                resolve('第二个OKOK')
+            })
+        }).then(value => {
+            console.log(value);
+        }).then(value => {
+            // 因为前面返回没写，所以返回成功 return undefined，非promise
+            console.log(value);
+        })
+    </script>
+</body>
+</html>

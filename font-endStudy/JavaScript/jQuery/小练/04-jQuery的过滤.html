@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery的过滤</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h1>04jQuery的过滤</h1>
+    <div id="wrap">
+        <div class="box">
+            <p class="text text1">文本01</p>
+            <p class="text text2">文本02</p>
+            <p class="text text3">文本03</p>
+            <p class="text text4">文本04<span class="wenben">这是一个文本</span></p>
+            <ul class="list">
+                <li>列表01</li>
+                <li>列表02</li>
+                <li>列表03</li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ol>
+                <li>列表01</li>
+                <li>列表02</li>
+                <li>列表03</li>
+            </ol>
+        </div>
+    </div>
+
+<script>
+    $(function(){
+        //eq('索引值') 返回符合所选元素索引的元素
+        console.log($('.box').children('p'));
+        console.log($('.box').children('p:nth-of-type(1)'));//同下
+        console.log($('.box').children('p').eq(0));
+        console.log($('.box').children('p:eq(0)'));//同上
+        //first() 过滤 返回所选元素的第一个元素
+        //last() 排除  返回所选元素的最后一个元素
+
+        // filter 过滤 返回符合所选元素条件的元素
+        console.log($('.box').children().filter('p'));//鸡肋
+        //not('条件') 排除 与filter相反 返回不符合所选元素条件的元素
+        console.log($('.box').children().not('p'));
+        //has('条件') 返回包含特定后代元素的元素
+        console.log($('.box').children('p').has('span'));
+        //silce(start,[end]) 留头不留尾
+        //  start:开始选区子集的位置。第一个元素是0，如果是负数则可以从集合的尾部开始选起
+        //    end:结束选区自己的位置，如果不指定，则就是本身的结尾 
+        console.log($('.box').children('p').slice(0,4));
+    })
+</script>    
+</body>
+</html>

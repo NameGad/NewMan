@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品精品展示</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper{
+            height: 200px;
+            width: 332px;
+            border: 1px solid black;
+            overflow: hidden;/*溢出隐藏*/
+        }
+        .left, .right{
+            float: left;
+        }
+        li{
+            border: 1px solid black;
+            text-decoration: none;
+            overflow: hidden;
+            width: 60px;
+            padding: 5.2px 10px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="left">
+            <li><a href="">健康</a></li>
+            <li><a href="">健康</a></li>
+            <li><a href="">健康</a></li>
+            <li><a href="">健康</a></li>
+            <li><a href="">健康</a></li>
+            <li><a href="">娱乐</a></li>
+        </ul>
+
+        <div class="right">
+            <div>
+                <a href=""><img src="images/bcefd9bc8fa025c9a5b77f4de8c803eae7.png" alt="健康" width="250px" height="200px"></a>
+            </div>
+            <div>
+                <a href=""><img src="images/wallhaven-lq7vor.png" alt="健康" width="250px" height="200px"></a>
+            </div>
+            <div>
+                <a href=""><img src="images/bcefd9bc8fa025c9a5b77f4de8c803eae7.png" alt="健康" width="250px" height="200px"></a>
+            </div>
+            <div>
+                <a href=""><img src="images/bcefd9bc8fa025c9a5b77f4de8c803eae7.png" alt="健康" width="250px" height="200px"></a>
+            </div>
+            <div>
+                <a href=""><img src="images/wallhaven-lq7vor.png" alt="娱乐" width="250px" height="200px"></a>
+            </div>
+            <div>
+                <a href=""><img src="images/wallhaven-lq7vor.png" alt="娱乐" width="250px" height="200px"></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //鼠标经过左侧的li时候
+        $(".left li").mouseover(function() {
+            //获取当前li的索引
+            var index = $(this).index();
+            console.log(index);
+            //把右侧对应索引的图片显示出来
+            $(".right div").eq(index).show();
+            //把其他图片隐藏
+            $('.right div').eq(index).siblings("div").hide();//siblings查找兄弟节点('li');
+        });
+    </script>
+</body>
+</html>
