@@ -33,9 +33,9 @@ npm -g install npm@5.9.1 （#@后跟版本号）这样我们就可以更新npm�
 
 npm uninstall jqeury #卸载
 
-npm install -save moduleName   # -save 在package文件的dependencies节点写入依赖。（运行时依赖）
+npm install -save moduleName   # -save 在package文件的dependencies节点写入依赖。（运行时依赖;在npm5之前，不加的话就不写进package.json）
 
-npm install -save-dev moduleName # -save-dev 在package文件的devDependencies节点写入依赖
+npm install -save-dev moduleName # -save-dev 在package文件的devDependencies节点写入依赖(-D == -dev,开发时依赖)
 
 dependencies：#运行时的依赖，发布后，即生产环境下还需要用的模块
 
