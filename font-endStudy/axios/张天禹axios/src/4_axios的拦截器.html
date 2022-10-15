@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.1.2/axios.js"></script>
+  <title>axio的拦截器方法</title>
+</head>
+<body>
+  <!-- https://api.apiopen.top/api/sentences -->
+  <button id="btn1">获取所有人信息</button>
+
+  <script>
+    const btn1 = document.getElementById('btn1')
+    axios.defaults.baseURL = 'http://localhost:5000'
+    // 创建请求拦截器
+    axios.interceptors.request.use((config)=>{
+      console.log('请求拦截器执行了');
+      if(Date.now() % 2 == 0){
+        return config
+      }else{
+        console.log('请求失败，时间戳为奇数');
+      }
+    })
+    
+    // 创建响应拦截器
+    axios.interceptors.response.use(
+      response => {
+        console.log('响应拦截器成功的回调执行了',response);
+        return response.data
+      },
+      error => {
+        console.log('响应拦截器失败的回调执行了',error);
+        return new Promise(()=>{})
+      }
+    )
+
+    // 获取所有人信息
+    btn1.onclick = async() => {
+      const result = await axios.get('/persons')
+      console.log(result);
+    } 
+  
+  </script>
+</body>
+</html>

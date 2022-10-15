@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.1.2/axios.js"></script>
+  <title>axios的常用配置项</title>
+</head>
+<body>
+  <button id="btn1"></button>
+  <button id="btn2"></button>
+
+  <script>
+    const btn1 = document.getElementById('btn1')
+    // 给axios配置基础配置项
+    axios.defaults.baseURL = 'http://localhost:5000'
+    axios.defaults.headers = {token:'adasdas123knjluiohasfa921'}
+    axios.defaults.timeout = 2000
+
+    btn1.onclick = () => {
+      axios({
+        url:'/persons',
+        method:'GET',
+        // params:{a:1,b:2}, //配置传递query参数
+        // data:{c:3,d:4}, //配置请求体参数（json编码）
+        // data:`a=1&c=3`, //配置请求体参数（urlencoded编码）
+        // timeout:2000,
+        // headers:{token:'adasdas123knjluiohasfa921'}, //配置请求头
+        // responseType:'json' //配置响应数据的格式（默认值）
+      }).then(
+        response => { console.log(response.data); },
+        error => { console.log(error); }
+      )
+    } 
+  </script>
+</body>
+</html>

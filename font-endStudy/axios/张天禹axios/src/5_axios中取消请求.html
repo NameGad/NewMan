@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.1.2/axios.js"></script>
+  <title>axios取消请求</title>
+</head>
+<body>
+  <button id="btn1">点我发送请求</button>
+  <button id="btn2">点我取消请求</button>
+  <script>
+    const btn1 = document.getElementById('btn1')
+    const btn2 = document.getElementById('btn2')
+
+    let controller = ''
+    // 获取所有人信息
+    btn1.onclick = () => {
+      // 如果controller不为空，说明已经请求且创建过了，
+      // 因此我们只需把他置空重新创建，就可以得到新的controller
+      if(controller){
+        controller.abort()
+        controller = null
+      }  
+      controller = new AbortController()
+      axios({
+        url:'http://localhost:5000/test1',
+        params:{delay:3000},
+        signal:controller.signal
+      }).then(
+        response => console.log('成功了',response),
+        error => {
+          if(axios.isCancel(error)){
+            console.log('用户取消请求',error.message)
+          }else{
+            console.log('请求失败',error)
+          }
+        }
+      )
+    } 
+    
+    // 点击取消请求
+    btn2.onclick = () => {
+      controller.abort('请求取消')
+    }
+  </script>
+</body>
+</html>
