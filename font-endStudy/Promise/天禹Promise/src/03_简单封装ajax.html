@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装ajax</title>
+</head>
+<body>
+  <!-- https://api.apiopen.top/api/getHaoKanVideo?page=1&size=10 -->
+  <script>
+    function sendAjax(url,data){
+      return p = new Promise((resolve,reject) => {
+        // 整理参数
+        let str = ''
+        for(key in data){
+          str = `${key}=${data[key]}&`
+        }
+        str = str.slice(0,-1)
+        const xhr = new XMLHttpRequest()
+        xhr.open('get',url+'?'+str)
+        xhr.send()
+        xhr.responseType = 'json'
+        xhr.onreadystatechange = () => {
+          if(xhr.readyState == 4){
+            if(xhr.status == 200){
+              resolve(xhr.response)
+            }else{
+              reject('出错了')
+            }
+          }
+        }
+      })
+    }
+    let send = sendAjax('https://api.apiopen.top/api/getHaoKanVideo',{page:1,size:10})
+    send.then(
+      value => console.log('成功了',value),
+      reason => console.log('失败了',reason)
+    )
+  </script>
+</body> 
+</html>
