@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05_ajax_取消请求</title>
+  <style>
+    #content {
+      width: 500px;
+      height: 300px;
+      border: 1px solid pink;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>05_ajax_取消请求</h2>
+  <button id="btn1">点我发送请求</button>
+  <div id="content"></div>
+  <script>
+    const btn1 = document.getElementById('btn1')
+    const content = document.getElementById('content')
+    let lastXhr 
+    btn1.onclick = () => {
+      if (lastXhr) {
+        lastXhr.abort() // 通过定义中间量，可以终止上一次请求（abort来得及取消，来不及拒之门外）
+      }
+      lastXhr = getCode()
+    }
+    function getCode(){
+      // 创建实例对象
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log(xhr.response)
+            content.innerText = xhr.response
+          }
+        }
+      }    
+      xhr.open('GET', 'http://localhost:8080/get_verify_code')
+      // post请求需要指定特定的请求头,必须携带
+      xhr.setRequestHeader('content-type','application/x-www-form-urlencoded') 
+      xhr.send()
+      return xhr
+    }
+  </script>
+</body>
+
+</html>

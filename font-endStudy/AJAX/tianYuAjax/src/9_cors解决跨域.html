@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <title>9_cors解决跨域</title>
+  <style>
+    #content{
+      width: 500px;
+      height: 300px;
+      border: 1px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">点我发送GET请求</button>
+  <button id="btn2">点我发送POST请求</button>
+  <script>
+    const btn1 = $('#btn1')
+    const btn2 = $('#btn2')
+    // GET
+    btn1.click(()=>{
+      // 完整版
+      $.ajax({
+        url:'http://localhost:8080/test_get3',
+        method:'GET',
+        data:{name:'林佳成',age:18},
+        success:(data) => {
+          console.log(data);
+        },
+        error:(err) => {
+          console.log(err);
+        }
+      })
+    
+      // 简约版
+      /* $.get('http://localhost:8080/test_get',{name:'林佳成',age:18},(data)=>{
+        console.log(data);
+      }) */
+    })
+    // POST
+    btn2.click(()=>{
+      // 完整版
+      /* $.ajax({
+        url:'http://localhost:8080/test_post',
+        method:'POST',
+        data:{name:'林佳成',age:18},
+        success:(data) => {
+          console.log(data);
+        },
+        error:(err) => {
+          console.log(err);
+        }
+      }) */
+      // 简约版
+      $.post('http://localhost:8080/test_post3',{name:'林佳成',age:18},(data)=>{
+        console.log(data);
+      })
+    })
+  </script>
+</body>
+</html>

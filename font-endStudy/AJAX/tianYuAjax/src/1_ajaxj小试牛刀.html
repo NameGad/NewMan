@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_ajax_小试牛刀</title>
+  <style>
+    #content{
+      width: 500px;
+      height: 300px;
+      border: 1px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">点我发送请求</button>
+  <div id="content"></div>
+  <script>
+    const btn1 = document.getElementById('btn1')
+    const content = document.getElementById('content')
+    // 创建实例对象
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = ()=>{
+      
+    }
+    // 指定
+    xhr.open('get','http://localhost:8080/test_get')
+    // 
+    xhr.open()
+  </script>
+</body>
+</html>

@@ -165,7 +165,7 @@
             return number
         },
 
-        // 当有人修改person的age属性时，set函数(setter)就会被调用，切会收到修改的具体值
+        // 当有人修改person的age属性时，set函数(setter)就会被调用，且会收到修改的具体值
         set(value){
             console.log('有人修改了age属性，且值是', value);
             number = value

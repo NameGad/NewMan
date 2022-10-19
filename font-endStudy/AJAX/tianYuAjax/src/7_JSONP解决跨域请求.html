@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7_JOSN解决跨域请求</title>
+</head>
+<body>
+  <h2>7_JOSN解决跨域请求</h2>
+  <button id="btn1">点击获取请求</button></button>
+  <button id="btn2"></button>
+  
+  <script>
+
+    /* 
+      jsonp解决跨域：
+          1.利用script标签，放请求不受同源策略限制
+          2.需要后端工程师配合
+          3.不可以解决post请求跨域的问题
+    */
+
+    const btn1 = document.getElementById('btn1')
+    btn1.onclick = () => {
+      // 1.创建script标签
+      let scriptNode = document.createElement('script')
+      // 2.提前指定好一个函数
+      window.demo2 = function(data){
+        console.log(data)
+      }
+      // 3.指定script标签的src属性
+      scriptNode.src = 'http://localhost:8080/test_get1?callback=demo2'
+      // 4.将script标签加入页面
+      document.body.appendChild(scriptNode)
+    }
+  </script>
+</body>
+</html>
