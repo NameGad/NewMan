@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async与await</title>
+</head>
+<body>
+  <!-- 
+    1. async 函数
+      函数的返回值为Promise对象
+      promise对象的结果由async函数执行的返回值决定
+
+    2. await 表达式
+      await 右侧的表达式一般为promise对象，但也可以是其他值
+      如果表达式是promise对象，await返回的是promise成功的值
+      如果表达式是其它值，直接将此值作为await的返回值
+
+    3. 注意：
+      await必须写在async函数，但saync函数中可以没await
+      如果await的promise失败了，就会抛出异常，通常需要try---catch来捕获错误
+   -->
+  <script>
+    function demo(){
+      return Promise.resolve('成功')
+    }
+
+    async function demo1(){
+      try {
+        let result = await demo() // 前面定义了await后，后面的函数相对于被then()包裹
+        console.log('result',result)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    demo1()
+  </script>
+</body>
+</html>

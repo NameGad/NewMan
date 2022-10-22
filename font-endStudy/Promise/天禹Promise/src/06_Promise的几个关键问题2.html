@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise的关键问题</title>
+</head>
+<body>
+  <!-- 
+    3.改变promise状态和指定回调函数谁先谁后
+      (1)都有可能，正常状态下是先指定回调再改变状态，但也可以先改状态再指定回调
+      (2)如何先改变状态再指定回调
+          ①在执行器中直接调用resolve()或reject()
+          ②延迟更长时间调用then
+      (3)什么时候才能拿到数据
+          取决于最慢那个因素的时间
+          ①如果先指定回调，那么当状态发生改变时，回调函数就会调用，获得数据
+          ②如果先改变状态，那么当回调指定时，回调函数就会调用，得到数据
+
+   -->
+  <script>
+     
+  </script>
+</body>
+</html>

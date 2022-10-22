@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise的关键问题4</title>
+</head>
+<body>
+  <!-- 
+    6.promise错误穿透?
+      (1)当使用promise的then链式调用时，可以在最后指定失败的回调
+      (2)前面任何操作出现了错误，都会传到最后失败的回调中处理 (因为我们不写，他会自动往后面 throw)
+  
+    7.中断promise链?
+      (1)当使用promise的then链式调用时，在中间中断，不再调用后面的回调函数
+      (2)办法：在回调函数中返回一个pendding状态的promise对象
+    -->
+  <script>
+     new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          resolve('成功了')
+          // reject('失败')
+        }, 1500)
+     }).then(
+      value => console.log('成功回调1',value)
+      // reason => throw reason   如果编码人员在then中没指定失败的回调，默认相对于写了这行代码
+     ).then(
+      value => console.log('成功回调2',value)
+      // reason => throw reason   如果编码人员在then中没指定失败的回调，默认相对于写了这行代码
+     ).then(
+      value => {
+        console.log('成功回调3',value)
+        throw 500
+      }
+     ).then(
+      value => console.log('成功回调4',value)
+     ).then(
+      value => console.log('成功的回调5'),
+      reason => console.log('失败的回调1',reason)
+     )
+     .catch(
+      reason => {
+        console.log('失败的回调',reason)
+        return new Promise(()=>{})  // 状态变为pending
+      }
+     ).then(
+      value => console.log('我是一个不太和谐的输出',value),
+     )
+  </script>
+</body>
+</html>

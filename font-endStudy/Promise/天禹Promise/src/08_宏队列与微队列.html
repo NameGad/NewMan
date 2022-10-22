@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宏队列与微队列</title>
+</head>
+<body>
+  <script>
+    /* 
+      1. JS中用来存储执行回调函数的队列包含2个不同待定的队列
+      2. 宏队列：用来保存待执行的宏任务(回调)，比如:定时器回调/DOM事件回调/ajax回调
+      3. 微列表：用来保存待执行的微队列(回调)，比如：promise的回调/MutationObserver的回调
+      4. JS执行时会区别这2个队列
+        (1) JS引擎首先必须执行所有初始化同步任务代码
+        (2) m每次准备取出一个宏任务来执行前，都要将所有的微任务一个一个取出来执行
+    */
+  </script>
+</body>
+</html>

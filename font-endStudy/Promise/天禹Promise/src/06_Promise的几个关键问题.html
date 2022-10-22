@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise的关键问题</title>
+</head>
+<body>
+  <!-- 
+    1.如何改变promise的状态
+      (1)resolve(value):  当前是pening -》 fulfilled(resolved)
+      (2)reject(value):   当前是pening -》 rejected
+      (3)throw:抛出异常，当前是pending 则变为 rejected
+
+    2.一个promise指定多个成功|失败的回调函数，都会调用吗？
+      YES
+   -->
+  <script>
+    let p = new Promise((resolve,reject)=>{
+      resolve('cgl')
+    })
+    p.then(
+      value => console.log('1',value),
+      reason => console.log('1',reason.message)
+    )
+    p.then(
+      value => console.log('2',value),
+      reason => console.log('2',reason.message)
+    )
+    p.then(
+      value => console.log('3',value),
+      reason => console.log('3',reason.message)
+    )
+    console.log(123);
+  </script>
+</body>
+</html>
