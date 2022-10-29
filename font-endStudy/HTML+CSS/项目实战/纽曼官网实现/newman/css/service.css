@@ -1,0 +1,41 @@
+main .services-list{
+    width: 930px;
+    overflow: hidden;
+    margin: 40px auto 0;
+}
+.services-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.services-list .question-list{
+    height: 20px;
+    overflow: hidden;
+    width: 920px;
+    color: #666666;
+    position: relative;
+    margin: 10px 5px;
+}
+.question-list .question{
+    margin-right: 8px;
+}
+.services-list .question-list a{
+    color: #666666;
+}
+.services-list .question-list a span{
+    display: inline-block;
+    font-size: 14px;
+}
+.services-list .question-list a .dotted{
+    position: absolute;
+    top: 8px;
+    border-top: 1px dotted #666666;
+    width: 100%;
+    display: inline-block;
+}
+.services-list .question-list a .services-date{
+    position: relative;
+    float: right;
+    padding-left: 8px;
+    background-color: #fff;
+    z-index: 999;
+}

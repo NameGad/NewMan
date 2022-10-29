@@ -1,0 +1,64 @@
+#map{
+    margin: 40px auto 0;
+}
+.contact{
+    display: flex;
+    margin-top: 30px;
+}
+.contact-form{
+    width: 500px;
+    height: 280px;
+    margin-left: 20px;
+}
+.contact-form span:first-child{
+    color: #333333;
+    font-size: 20px;
+}
+.contact-form span:first-child{
+  margin-top: 0px;
+}
+.contact-form span{
+    display: block;
+    margin-top: 10px;
+    color: #666;
+    font-size: 16px;
+}
+.contact-form .buttons{
+    margin: 15px 0px 0px 54px;
+}
+.contact-form span input{
+    width: 280px;
+    height: 28px;
+    outline: none;
+}
+.contact-form .submit{
+    background-color: #01a1ff;
+    color: #fff;
+}
+.contact-form .reset{
+    background-color: transparent;
+    border: 1px solid #666;
+    color: #666;
+    margin-left: 20px;
+}
+.contact-form .submit, .reset{
+    border: 1px solid transparent;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+}
+.contact .contact-way{
+    width: 380px;
+    height: 155px;
+}
+.contact .contact-way h1{
+    color: #333333;
+    font-size: 20px;
+}
+.contact .contact-way span{
+    color: #666;
+    font-size: 14px;
+    margin-top: 20px;
+    display: block;
+}
+

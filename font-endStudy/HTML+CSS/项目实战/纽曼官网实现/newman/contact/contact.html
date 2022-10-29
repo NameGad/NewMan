@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="该网站为纽曼的一个产品展示网站">
+  <meta name="render" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纽曼官网</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/public.css">
+  <!-- <link rel="stylesheet" href="../css/index.css"> -->
+  <link rel="stylesheet" href="../css/contact.css">
+  <!--引用百度地图API-->
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oakT5g66FUn2owGLUMezln94VNpRRWUG"></script>
+</head>
+<body>
+      <!-- 头部导航栏样式 -->
+  <header>
+    <!-- logo标签 -->
+    <div class="logo">
+      <a href=""><img src="../home/images/logo.jpg" alt=""></a>
+    </div>
+    <ul class="nav">
+      <li><a href="../index.html">企业首页</a></li>
+      <li><a href="../about/about.html">关于我们</a></li>
+      <li><a href="../news/news.html">新闻中心</a></li>
+      <li><a href="../product/product.html">产品中心</a></li>
+      <li><a href="../service/service.html">客户服务</a></li>
+      <li  class="action"><a href="../contact/contact.html">联系我们</a></li>
+    </ul>
+    <ul class="language">
+      <li>CN</li>
+      <li>EN</li>
+    </ul>
+  </header>
+
+  <!-- banner -->
+  <div class="banner">
+      <a href="../index.html"><img src="images/about-banner.png" alt=""></a>
+  </div>
+
+  <!-- content-->
+  <div class="content">
+    <aside>
+      <span>
+        <p>NEWS CENTER</p>
+        <p>新闻中心</p>
+      </span>
+      <ul class="content-list">
+        <li class="list-active"><a href="">最新动态&nbsp;>></a></li>
+        <li><a href="">企业新闻&nbsp;>></a></li>
+        <li><a href="">行业新闻&nbsp;>></a></li>
+        <li><a href="">热点焦距&nbsp;>></a></li>
+      </ul>
+
+      <!-- 搜索内容区块 -->
+    <!-- <div class="search">
+        
+    </div> -->
+    </aside>
+    
+    <main>
+      <!-- 内容标题上方代码 -->
+      <div class="content-title">
+        <div class="title-left">
+          <h4>新闻中心
+            <span>NEWS CENTER</span>
+          </h4>
+        </div> 
+        <div class="title-right">
+          <span>您当前的位置</span>
+          &nbsp;>&nbsp;
+          <a href="">首页</a>
+          &nbsp;>&nbsp;
+          <a href="">关于我们</a>
+          &nbsp;>&nbsp;
+          <span style="color: #01a1ff;">公司简介</span>
+        </div>
+      </div>
+      <!-- map -->
+      <div style="width:910px;height:280px;border:#ccc solid 1px;font-size:12px" id="map"></div>
+      <div class="contact">
+        <form action="" class="contact-form">
+          <span>给我们留言</span>
+          <span>姓名：
+            <input type="text">
+          </span>
+          <span>邮箱：
+            <input type="email">
+          </span>
+          <span>留言：
+            <input type="text">
+          </span> 
+          <div class="buttons">
+            <input type="submit" value="提交" class="submit">
+            <input type="reset" value="重置" class="reset">
+          </div>
+        </form>
+        <div class="contact-way">
+          <h1>联系方式</h1>
+          <span>地址：广东省深圳市南山区粤海街道麻岭社区高新中二道2号</span>
+          <span>手机：18814435935</span>
+          <span>QQ：1525613414</span>
+          <span>邮箱：1525613414@qq.com</span>
+        </div>
+      </div>
+    
+    </main>
+  </div>
+<!-- footer -->
+<footer>
+  <div class="footer-content">
+    <div class="content-left">
+      <dl>
+        <dt>关于我们</dt>
+        <dd><a href="">公司简介</a> </dd>
+        <dd><a href="">企业文化</a> </dd>
+        <dd><a href="">企业荣誉</a> </dd>
+        <dd><a href="">资格认证</a> </dd>
+        <dd><a href=""> 研发生产</a></dd>
+      </dl> 
+      <dl>
+        <dt>产品中心</dt>
+        <dd><a href="">冰箱</a> </dd>
+        <dd><a href="">空调</a> </dd>
+        <dd><a href="">饮水机</a> </dd>
+        <dd><a href=""> 洗衣机</a></dd>
+        <dd><a href=""> 其他产品 </a></dd>
+      </dl>
+      <dl>
+        <dt>新闻中心</dt>
+        <dd><a href=""> 新闻中心</a></dd>
+        <dd><a href=""> 企业新闻</a></dd>
+        <dd><a href=""> 行业新闻 </a></dd>
+        <dd><a href=""> 热点聚焦</a></dd>
+      </dl>
+      <dl>
+        <dt>客户服务</dt>
+        <dd><a href=""> 招商网加盟</a></dd>
+        <dd><a href="">购买流程</a> </dd>
+        <dd><a href="">售后服务</a> </dd>
+        <dd><a href="">技术支持</a> </dd>
+        <dd><a href="">常见问题</a> </dd>
+      </dl>
+      <dl>
+        <dt>联系我们</dt>
+        <dd><a href=""> 在线留言</a> </dd>
+        <dd><a href=""> 网上咨询</a></dd>
+        <dd><a href=""> 联系我们</a></dd>
+      </dl>
+    </div>
+    <div class="content-right">
+      <form action="">
+        <input type="text" placeholder="请输入您的姓名">
+        <input type="text" placeholder="请输入您的联系方式">
+        <textarea name="" id="" cols="30" rows="30" placeholder="请输入您的留言"></textarea>
+        <input type="submit" value="提交">
+      </form>
+    </div>
+  </div>
+  <div class="company">
+    <p>Copyright©2016WenCun.com All Rights Reserved</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(113.946783,22.550926),18);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"深圳软件园",title:"深圳软件园",imageOffset: {width:0,height:3},position:{lat:22.55111,lng:113.946505}},
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* 图片样式 */
+.banner a img{
+    width: 100%;
+    height: 400px;
+}
+main .news-list{
+    width: 930px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+main .news-list li{
+    overflow: hidden;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+main .news-list li:hover .news-date{
+    color: #fff !important;
+    background: url(../news/images//newsdate_03.jpg) center/100% 100%;
+    
+}
+main .news-list li:hover .news-content a{
+    color: #01a1ff !important;
+}
+main .news-list li:hover .news-date .year-mouth{
+    border-top: 1px solid #fff;
+}
+main .news-list li .news-date{
+    color: #999999;
+    text-align: center;
+    background: url(../news/images//newsdate_06.jpg) center/100% 100%;
+    height: 100px;
+    width: 100px;
+    background-color: beige;
+}
+.news-date .day{
+    font-size: 50px;
+    /* color: #fff; */
+    margin-top: 10px;
+}
+.news-date .year-mouth{
+    height: 30px;
+    width: 70px;
+    margin: 5px auto;
+    line-height: 30px;
+    border-top: 1px solid #999999;
+}
+/* 已被选择的li的 */
+.news-list .list-li-active .news-date{
+    background: url(../news/images//newsdate_03.jpg) center/100% 100%;
+   color: #fff;
+}
+.news-list .list-li-active .news-date .year-mouth{
+    border-top: 1px solid #fff;
+}
+.news-list .list-li-active .news-content a{
+    color: #01a1ff;
+}
+/*news-content 内容样式*/
+main .news-list li .news-content{
+    width: 800px;
+}
+main .news-list li .news-content h3{
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333333;
+}
+main .news-list li .news-content p{
+    font-size: 14px;
+    color: #666666;
+    text-indent: 2em;
+    margin-top: 20px;
+    line-height: 25px;
+}
