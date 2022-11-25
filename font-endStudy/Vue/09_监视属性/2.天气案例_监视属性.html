@@ -41,7 +41,7 @@
                     return this.isHot ? '炎热' : '凉爽'
                 }
             },
-            /* watch:{
+            watch:{
                 isHot:{
                     immediate: true, // 初始化时让handle调用一下
                     // handler什么时候调用？当isHot发送改变时
@@ -49,15 +49,15 @@
                         console.log("isHot被修改了", newValue, oldValue);
                     }
                 }
-            } */
+            }
         })
 
-        vm.$watch('isHot', {
+        /* vm.$watch('isHot', {
             immediate: true, // 初始化时让handle调用一下
             // handler什么时候调用？当isHot发送改变时
             handler(newValue, oldValue){
                 console.log("isHot被修改了", newValue, oldValue);
             }
-        })
+        }) */
     </script>
 </html>

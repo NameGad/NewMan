@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<meta name="description" content="xx网管理系统">
+		<meta name="author" content="作者">
+		<!-- 引入BootStrap css样式文件 -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+		<!-- 引入BootStrap 图标式样库 -->
+		<link rel="stylesheet" href="../icon/bootstrap-icons-1.9.1/bootstrap-icons.css">
+		<title>xx网 管理系统</title>
+		<title></title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header class="navbar navbar-dark bg-dark shadow navbar-expand-lg">
+				<!-- 品牌 -->
+				<a href="#" class="navbar-brand">xx管理系统</a>
+
+				<!-- toggler切换器 -->
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- 折叠内容包裹层，包裹导航栏与内置表单 -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<!-- 导航 -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a href="#" class="nav-link">首页</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#" class="nav-link">系统管理</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#" class="nav-link">数据分析</a>
+						</li>
+					</ul>
+
+					<div class="text-light">
+						<!-- 图标 -->
+						<span class="bi-person-circle"></span>
+						<span class="ml-2 mr-4">admin</span>
+						<a href="#" class="text-light">退出</a>
+					</div>
+				</div>
+			</header>
+
+			<div class="d-md-flex">
+				<div class="accordion" id="accordionWrapper" style="min-width:150px">
+					<div class="list-group lish-group-flush">
+						<!-- 触发元素 -->
+						<div class="bg-info text-light list-group-item" data-toggle="collapse"
+							data-target="#collapseRoutes">
+							线路管理
+						</div>
+						<!-- 内容 -->
+						<div id="collapseRoutes" class="collapse show" data-parent="#accordionWrapper">
+							<div class="list-group-item">
+								<a href="#">线路维护</a>
+							</div>
+
+							<div class="list-group-item">
+								<a href="#">定制路线</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="list-group lish-group-flush">
+						<!-- 触发元素 -->
+						<div class="bg-info text-light list-group-item" data-toggle="collapse"
+							data-target="#collapseOrders">
+							订单管理
+						</div>
+						<!-- 内容 -->
+						<div id="collapseOrders" class="collapse" data-parent="#accordionWrapper">
+							<div class="list-group-item">
+								<a href="#">确认订单</a>
+							</div>
+
+							<div class="list-group-item">
+								<a href="#">退款申请</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex-grow-1 pl-4 pt-3">
+					<!-- 选项卡导航板块 -->
+					<ul class="nav nav-tabs">
+						<!-- 导航条目 -->
+						<li class="nav-item">
+							<a href="#info" class="nav-link active" data-toggle="tab">
+								<h6>基本信息</h6>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#scheduling" class="nav-link" data-toggle="tab">
+								<h6>行程</h6>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#pricePane" class="nav-link" data-toggle="tab">
+								<h6>团费</h6>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#img" class="nav-link" data-toggle="tab">
+								<h6>图片</h6>
+							</a>
+						</li>
+					</ul>
+
+					<!-- 选项卡内容 -->
+					<div class="tab-content border border-top-0 p-2">
+						<!-- 基本信息选项内容窗 -->
+						<div class="tab-pane fade show active" id="info">
+							<form action="" class="p-3">
+								<!-- 表单组 -->
+								<div class="form-row">
+									<div class="form-group col-lg-6">
+										<label for="title">
+											名称
+											<span class="text-danger ml-1">*</span>
+										</label>
+										<input type="text" id="title" class="form-control" placeholder="不超过20个字">
+									</div>
+
+									<div class="form-group col-lg-2">
+										<label for="routeType">
+											路线类型
+											<span class="text-danger">*</span>
+										</label>
+										<select name="" id="routeType" class="form-control">
+											<option value="">选择类型</option>
+											<option value="">召集令</option>
+											<option value="">私人定制</option>
+										</select>
+									</div>
+
+									<div class="form-group col-lg-2">
+										<label for="days">
+											行程天数
+											<span class="text-danger">*</span>
+										</label>
+										<input min="1" type="number" id="days" class="form-control">
+									</div>
+
+									<div class="form-group col-lg-2">
+										<label for="groupSize">
+											成团人数
+											<span class="text-danger">*</span>
+										</label>
+										<input min="1" type="number" id="groupSize" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group col-lg-6">
+										<label for="">
+											集合地点
+											<span class="text-danger">*</span>
+										</label>
+										<div class="d-flex">
+											<select name="" id="inputProvince" class="form-control">
+												<option value="">省</option>
+												<option value="">安徽</option>
+											</select>
+											<select name="" id="inputCity" class="form-control">
+												<option value="">市</option>
+												<option value=""></option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group col-lg-6">
+										<label for="">
+											交通方式
+											<span class="text-danger ml-1">*</span>
+										</label>
+										<div class="pt-1 pl-2">
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="airplane">
+												<label for="airplane" class="form-check-label">飞机</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="automobile">
+												<label for="automobile" class="form-check-label">汽车</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group col-lg-6">
+										<label for="priceStatement">
+											价格说明
+											<span class="text-danger ml-1">*</span>
+										</label>
+										<textarea class="form-control" id="priceStatement"
+											style="height: 100px;"></textarea>
+									</div>
+
+									<div class="form-group col-lg-6">
+										<label for="tips">
+											提示
+											<span class="text-danger ml-1">*</span>
+										</label>
+										<textarea class="form-control" id="tips" style="height: 100px;"
+											placeholder="不超过50字"></textarea>
+									</div>
+								</div>
+							</form>
+
+							<div class="ml-3 mb-3">
+								<button type="button" class="btn btn-success" id="next1">下一步</button>
+							</div>
+						</div>
+
+						<!-- 行程选项内容窗 -->
+						<div class="tab-pane fade" id="scheduling">
+							<form action="" class="p-3">
+								<!-- 卡片组件 -->
+								<div class="card-mb-2">
+									<!-- 卡片头，设置背景和文字的颜色，并设置图标 -->
+									<h6 class="card-header bg-light text-info bi-patch-plus" data-toggle="collapse"
+										data-target="#day1">
+										第一天
+									</h6>
+									<div class="collapse fade" id="day1">
+										<div class="card-body">
+											<div class="d-lg-flex">
+												<div class="form-group flex-lg-fill mx-2">
+													<label for="scheduling1">
+														日程
+														<span class="text-danger ml-1">*</span>
+													</label>
+													<textarea class="form-control" id="scheduling1"
+														style="height: 100px" placeholder="不超过200字"></textarea>
+												</div>
+												<div class="form-group flex-lg-fill mx-2">
+													<label for="birds1">
+														目标鸟种
+													</label>
+													<textarea class="form-control" id="birds1" style="height: 100px"
+														placeholder="不超过50字"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card-mb-2">
+									<!-- 卡片头，设置背景和文字的颜色，并设置图标 -->
+									<h6 class="card-header bg-light text-info bi-patch-plus" data-toggle="collapse"
+										data-target="#day2">
+										第二天
+									</h6>
+									<div class="collapse fade" id="day2">
+										<div class="card-body">
+											<div class="d-lg-flex">
+												<div class="form-group flex-lg-fill mx-2">
+													<label for="scheduling1">
+														日程
+														<span class="text-danger ml-1">*</span>
+													</label>
+													<textarea class="form-control" id="scheduling1"
+														style="height: 100px" placeholder="不超过200字"></textarea>
+												</div>
+												<div class="form-group flex-lg-fill mx-2">
+													<label for="birds1">
+														目标鸟种
+													</label>
+													<textarea class="form-control" id="birds1" style="height: 100px"
+														placeholder="不超过50字"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<div class="d-lg-flex">
+								<div class="ml-3 mb-3">
+									<button type="button" class="btn btn-success" id="next1">添加行程</button>
+								</div>
+								<div class="ml-3 mb-3">
+									<button type="button" class="btn btn-success" id="next1">下一步</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- 团费选项内容窗 -->
+						<div class="tab-pane fade" id="pricePane">
+							<div class="btn-group bg-light mb-3 ml-3 font-weight-bolder">
+								<button class="btn border">
+									<div class="form-check">
+										<input id="checkAll" type="checkbox" class="form-check-input position-static"
+											title="全选">
+									</div>
+								</button>
+								<button class="btn border text-danger bi-trash-fill" title="批量删除"></button>
+								<button class="btn border text-success bi-reply-fill" title="撤销删除"></button>
+								<button class="btn border text-info bi-calendar-plus-fill" title="添加团次"></button>
+							</div>
+							<form action="" class="p-3">
+								<table class="table text-center table-borderless table-sm" style="max-width: 400px;">
+									<thead>
+										<th></th>
+										<th>团费(元)</th>
+										<th>出团日期</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="align-middle">
+												<input type="checkbox" class="ml-2">
+											</td>
+											<td>
+												<input type="text" class="form-control mx-auto"
+													style="max-width: 100px;">
+											</td>
+											<td>
+												<input type="date" class="form-control mx-auto"
+													style="max-width: 220px;">
+											</td>
+										</tr>
+										<tr>
+											<td class="align-middle">
+												<input type="checkbox" class="ml-2">
+											</td>
+											<td>
+												<input type="text" class="form-control mx-auto"
+													style="max-width: 100px;">
+											</td>
+											<td>
+												<input type="date" class="form-control mx-auto"
+													style="max-width: 220px;">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+
+							<div class="ml-3 mb-3">
+								<button type="button" class="btn btn-success" id="next1">下一步</button>
+							</div>
+						</div>
+
+						<!-- 图片选项内容窗 -->
+						<div class="tab-pane fade" id="img">
+							<form action="" class="p-3">
+								<div class="custom-file" style="max-width: 400px;">
+									<input type="file" class="custom-file-input" id="uploadFile">
+									<label data-browse="选择图片" for="uploadFile" class="custom-file-label"></label>
+								</div>
+							</form>
+							<div class="ml-3 mb-3">
+								<button class="btn btn-success" type="button" id="submit">提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="text-center">
+				<p>Copyright@2020XXXXXXXXXXXXXXco.,Ltd.AllRightsReserved</p>
+				<p>深圳XXXXX旅游有限公司 粤 ICP 备 XXXXXXXXXXXXXX 号</p>
+			</footer>
+
+			<div class="modal" id="delModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<p>删除选中的元素？</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal">取消</button>
+							<button>提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 引入jQuery库文件 -->
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<!-- 引入BootStrap js库文件 -->
+		<script src="../js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

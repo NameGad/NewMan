@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>三栏布局，中间自适应</title>
+</head>
+<style>
+        *{
+                padding: 0;
+                margin: 0;
+        }
+        body{
+                min-width: 500px;
+        }
+        .container{
+                text-align: left;
+        }
+        .middle{
+                height: 300px;
+                float: left;
+                position: relative;
+        }
+        .left{
+                background-color: rgb(255, 47, 47);
+                width: 200px;
+                line-height: 300px;
+                margin-right: -200px;
+                z-index: 999;
+        }
+        .centerWrap{
+                width: 100%;
+                background-color:greenyellow ;
+        }
+        .center{
+                margin: 0 150px 0 200px;
+        }
+        .right{
+                background-color: rgb(47, 47, 242);
+                width: 150px;
+                line-height: 300px;
+                margin-left: -150px;
+        }
+</style>
+<body>
+        <div class="container">
+                <div class="middle left">left</div>
+                <div class="middle centerWrap">
+                        <div class="center">center</div>
+                </div>
+                <div class="middle right">right</div>
+        </div>
+</body>
+</html>

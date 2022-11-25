@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>容器属性</title>
+        <style>
+                *{
+                        padding: 0;
+                        margin: 0;
+                }
+                .container{
+                        display: flex;
+                        display: -webkit-flex;
+                        width: 600px;
+                        height: 600px;
+                        border: 1px solid black;
+                        margin: 0 auto;
+                        /* flex-direction: column-reverse;
+                        flex-wrap: wrap; */
+                        flex-flow:row wrap;
+
+                        /*主轴上项目对齐方式*/
+                        justify-content: space-evenly;
+
+                        /*交叉轴上项目对齐方式*/
+                        align-items:center;
+
+                        /*多跟主轴对其方式*/
+                        align-content: space-between;
+                }
+                .box{
+                        /* height: 100px; */
+                        width: 100px;
+                        text-align: center;
+                        font-size: 30px;
+                        color: aliceblue;
+                         line-height: 100px;
+                }
+                .box1{
+                        background-color: aquamarine;
+                }
+                .box2{
+                        background-color: rgb(145, 242, 27);
+                }
+                .box3{
+                        background-color: rgb(40, 133, 255);
+                }
+                .box4{
+                        background-color: rgb(141, 90, 128);
+                }
+                .box5{
+                        background-color: rgb(65, 119, 0);
+                }
+                .box6{
+                        background-color: rgb(11, 98, 59);
+                }
+                .box7{
+                        background-color: rgb(90, 128, 88);
+                }
+                .box8{
+                        background-color: rgb(83, 45, 254);
+                }
+                .box9{
+                        background-color: rgb(255, 40, 219);
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <div class="box box1">1</div>
+                <div class="box box2">2</div>
+                <div class="box box3">3</div>
+                <div class="box box4">4</div>
+                <div class="box box5">5</div>
+                <div class="box box6">6</div>
+                <div class="box box7">7</div>
+                <div class="box box8">8</div>
+                <div class="box box9">9</div>
+        </div>
+</body>
+</html>

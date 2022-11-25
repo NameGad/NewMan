@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>双飞翼布局</title>
+</head>
+<style>
+        *{
+                padding: 0;
+                margin: 0;
+        }
+        body{
+                min-width: 700px;
+        }
+        .container{
+                width: 100%;
+                text-align: center;
+        }
+        .div{
+                float: left;
+                height: 300px;
+        }
+        .center{
+                width:100%;
+                background-color: pink;
+        }
+        .left{
+                width: 200px;
+                background-color: aquamarine;
+                margin-left: -100%;
+        }
+        .right{
+                width: 200px;
+                background-color: blue;
+                margin-left: -200px;
+        }
+</style>
+<body>
+        <!-- 双飞翼布局是将一个网页分为左列、中列和右列三部分，并且我们要得到的效果是：左列和右列宽度恒
+定，中间列的宽度根据浏览器窗口的大小自适应。 -->
+<div class="container">
+        <div class="div center">双飞翼布局，中间自适应，左-100%，右-px
+                <hr color="black">
+        </div>
+        <div class="div left"></div>
+        <div class="div right"></div>
+</div>
+</body>
+</html>

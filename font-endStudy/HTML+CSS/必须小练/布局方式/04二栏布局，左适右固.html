@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>左适应右固定</title>
+        <style>
+                *{
+                        padding: 0;
+                        margin: 0;
+                }
+                .container{
+                        width: 100%;
+                        overflow: hidden;
+                }
+                .nav{
+                        height: 300px;
+                        position: relative;
+                        text-align: center;
+                }
+                .left{
+                        width: 100%;
+                        background-color: bisque;
+                        float: left;
+                        box-sizing: border-box;
+                }
+                .leftBox{
+                       margin-right: 210px;
+                }
+                .right{
+                        width:200px;
+                        background-color: rgb(216, 132, 30); 
+                        float: right;
+                        margin-left: -200px;
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <div class="leftBox">
+                        <div class="nav left">left</div>
+                </div>
+                <div class="nav right">right</div>
+        </div>
+</body>
+</html>

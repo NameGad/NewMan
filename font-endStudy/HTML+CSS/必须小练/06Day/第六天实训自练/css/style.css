@@ -1,0 +1,92 @@
+*{
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+}
+body{
+        background: url(../images/siteBackground.jpg);
+        min-width: 300px;
+        font-family: Belgrano , serif;
+}
+.container{
+        width:1100px;
+        margin: 0 auto;
+        overflow: hidden;
+}
+aside,main{
+        float: left;
+        text-align: center;
+        height: 800px;
+}
+/* 左侧边栏 */
+aside{
+        width: 300px;
+        margin-right: -300px;
+}
+/*logo部分*/
+.logo{
+        background: url(../images/logoBackground.png) no-repeat center/100% 100%;
+        width: 200px;
+        height: 200px;
+        margin: 30px auto;
+}
+.logo a{
+        text-align: center;
+        line-height: 200px;
+}
+/*导航栏*/
+nav{
+        width: 300px;
+        line-height: 50px;
+        font-size:30px;
+        font-weight: 700;
+}
+nav li{
+        font-family: Lobster, sans-serif;
+        text-shadow: 1px 1px 1px #fff;
+}
+audio{
+        width: 300px;
+        height: 54px;
+        margin-top: 50px;
+}
+/* 主体部分 */
+main{
+        display: block;
+        width: 90%;
+        margin-left: 350px;
+}
+section{
+        display: block;
+}
+article{
+        display: block;
+        width: 230px;
+        float: left;
+        margin: 10px 10px;
+}
+article h3{
+        font-size: small;
+}
+.sectiontwo{
+        width: 750px;
+        text-align: justify;
+}
+.sectiontwo p:nth-child(1){
+        font-family: Lobster, sans-serif;
+        text-align: left;
+        font-size: 30px;
+}
+.sectiontwo p:nth-child(2){
+        font-family: Lobster, sans-serif;
+        text-align: left;
+        font-size: 10px;
+       margin-top: 40px;
+}
+/*尾部标签*/
+footer{
+        width: 1100px;
+        height: 60px;
+        text-align: center;
+        margin-top: 30px;
+}

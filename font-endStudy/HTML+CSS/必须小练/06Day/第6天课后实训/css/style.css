@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img,a,audio,video{
+    border: 0;
+    outline: none;
+}
+a{
+    text-decoration: none;
+    color: #900000;
+}
+li{
+    list-style-type: none;
+}
+body{
+    font-family: Belgrano, serif;
+    font-size: 14px;
+    background: url(../images/siteBackground.jpg);
+    padding-top: 10px;
+    color: #452200;
+}
+.container{
+    width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+aside{
+    float: left;
+    width: 320px;
+}
+/*logo*/
+.logo{
+    float: left;
+    background: url('../images/logoBackground.png') no-repeat;
+    width: 206px;
+    height: 205px;
+}
+.logo h1{
+    font-size: 60px;
+    font-family: Lobster, sans-serif;
+    line-height: 60px;
+    padding: 40px 0 0 43px;
+}
+.logo h1 a{
+    color: #5a270b;
+    text-shadow: 1px 1px 1px #fff;/*设置文字的阴影 参数：横向偏移 纵向偏移 糊糊度 颜色*/
+}
+
+/*导航*/
+.navlist{
+    padding-right: 40px;
+    text-align: center;
+}
+.navlist li{
+    padding: 5px 0;
+    font-family: Lobster, sans-serif;
+    text-shadow: 1px 1px 1px #fff;
+    font-size: 36px;
+}
+.navlist li a{
+    color: #ac8829;
+}
+.navlist li a:hover{
+    color: #452200;
+}
+.navlist li a.active{
+    color: #452200;
+}
+main{
+    float: right;
+    width: 750px;
+}
+main article{
+    width: 193px;
+    float: left;
+    margin: 0 57px 25px 0;
+}
+main h2{
+    font-family: Lobster, sans-serif;
+    font-size: 30px;
+    padding: 10px 0;
+    color: #883b12;
+    text-shadow: 1px 1px 2px #ffffff;
+}
+main .title{
+    line-height: 2em;
+}
+main article a h2:hover{
+    color: #452200;
+}
+main p{
+    line-height: 1.5em;
+}
+.date, .read-more{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+}
+main .date span{
+    color: #ac8829;
+}
+.clear{
+    clear: both;
+}
+/*页尾*/
+footer{
+    width: 1100px;
+    margin: 30px auto 0;
+    text-align: center;
+    border-top: 1px solid #ac8829;
+}
+footer p{
+    padding: 30px 20px;
+}

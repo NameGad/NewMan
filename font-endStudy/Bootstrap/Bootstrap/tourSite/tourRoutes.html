@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<meta name="description" content="旅游">
+		<meta name="keywords" content="旅游 公司名 ...">
+		<meta name="author" content="老岑">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<style>
+			.nav-pills .nav-link.active {
+				background-color: transparent !important;
+				border: 1px solid #007BFF !important;
+				color: #007BFF !important;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 流氏布局容器 -->
+		<div class="container-fluid">
+			<!-- 导航栏，深色系，背景颜色为promary -->
+			<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+				<!-- 导航栏品牌 -->
+				<a class="navbar-brand" href="#">LOGO</a>
+				<!-- toggler 切换器，外观为三横线按钮 -->
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span
+						class="navbar-toggler-icon"></span></button>
+				<!-- 折叠内容包裹层，包裹导航栏与内置表单 -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<!-- 导航栏导航 -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a class="nav-link" href="#">首页</a></li>
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown"
+								href="#">选择路线</a>
+							<div class="dropdown-menu">
+								<a href="#" class="dropdown-item">国内</a>
+								<a href="#" class="dropdown-item">国外</a>
+							</div>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">联系我们</a></li>
+					</ul>
+					<!-- 导航栏内置表单 -->
+					<form class="form-inline">
+						<input type="text" class="form-control" placeholder="站内搜索">
+						<button class="btn btn-outline-light ml-2">搜索</button>
+					</form>
+				</div>
+			</nav>
+
+			<div class="d-md-flex mt-2">
+				<div class="nav d-md-block d-none" style="min: width 8rem;">
+					<a href="#huadong" data-toggle="tab" class="nav-link">华东</a>
+					<a href="#huanan" data-toggle="tab" class="nav-link">华南</a>
+				</div>
+
+				<div class="nav nav-pills d-md-none mb-2">
+					<a href="#huadong" data-toggle="tab" class="nav-link active">华东</a>
+					<a href="#huanan" data-toggle="tab" class="nav-link">华南</a>
+				</div>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="huadong">
+						<h4 class="border-bottom border-primary text-primary py-3 pl-3">
+							<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+								class="bi bi-binoculars-fill" viewBox="0 0 20 20">
+								<path
+									d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z" />
+							</svg>
+							<span class="text-muted">华东</span>
+						</h4>
+						<div class="row">
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/32.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+										<h6 class="card-subtitle">副标题</h6>
+										<p class="card-text">卡片内容文字</p>
+										<p class="card-text">
+											<small class="text-muted">卡片内容文字</small>
+										</p>
+										<a href="#" class="card-link stretched-link"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/32.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+										<h6 class="card-subtitle">副标题</h6>
+										<p class="card-text">卡片内容文字</p>
+										<p class="card-text">
+											<small class="text-muted">卡片内容文字</small>
+										</p>
+										<a href="#" class="card-link stretched-link"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/32.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+										<h6 class="card-subtitle">副标题</h6>
+										<p class="card-text">卡片内容文字</p>
+										<p class="card-text">
+											<small class="text-muted">卡片内容文字</small>
+										</p>
+										<a href="#" class="card-link stretched-link"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/32.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+										<h6 class="card-subtitle">副标题</h6>
+										<p class="card-text">卡片内容文字</p>
+										<p class="card-text">
+											<small class="text-muted">卡片内容文字</small>
+										</p>
+										<a href="#" class="card-link stretched-link"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane active" id="huanan">
+						<h4 class="border-bottom border-primary text-primary py-3 pl-3">
+							<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+								class="bi bi-binoculars-fill" viewBox="0 0 20 20">
+								<path
+									d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z" />
+							</svg>
+							<span class="text-muted">华南</span>
+						</h4>
+						<div class="row">
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/119.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/119.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/119.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="card">
+									<img src="./img/119.jpg" alt="" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">标题</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="text-center">
+				<p>Copyright@2020XXXXXXXXXXXXXXco.,Ltd.AllRightsReserved</p>
+				<p>深圳XXXXX旅游有限公司 粤 ICP 备 XXXXXXXXXXXXXX 号</p>
+			</footer>
+		</div>
+
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

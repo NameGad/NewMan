@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<meta name="description" content="xx网管理系统">
+		<meta name="author" content="作者">
+		<!-- 引入BootStrap css样式文件 -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+		<!-- 引入BootStrap 图标式样库 -->
+		<link rel="stylesheet" href="../icon/bootstrap-icons-1.9.1/bootstrap-icons.css">
+		<title>xx网 管理系统</title>
+		<title></title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header class="navbar navbar-dark bg-dark shadow navbar-expand-lg">
+				<!-- 品牌 -->
+				<a href="#" class="navbar-brand">xx管理系统</a>
+
+				<!-- toggler切换器 -->
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- 折叠内容包裹层，包裹导航栏与内置表单 -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<!-- 导航 -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a href="#" class="nav-link">首页</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#" class="nav-link">系统管理</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#" class="nav-link">数据分析</a>
+						</li>
+					</ul>
+
+					<div class="text-light">
+						<!-- 图标 -->
+						<span class="bi-person-circle"></span>
+						<span class="ml-2 mr-4">admin</span>
+						<a href="#" class="text-light">退出</a>
+					</div>
+				</div>
+			</header>
+
+			<div class="d-md-flex">
+				<div class="accordion" id="accordionWrapper" style="min-width:150px">
+					<div class="list-group lish-group-flush">
+						<!-- 触发元素 -->
+						<div class="bg-info text-light list-group-item" data-toggle="collapse"
+							data-target="#collapseRoutes">
+							线路管理
+						</div>
+						<!-- 内容 -->
+						<div id="collapseRoutes" class="collapse show" data-parent="#accordionWrapper">
+							<div class="list-group-item">
+								<a href="#">线路维护</a>
+							</div>
+
+							<div class="list-group-item">
+								<a href="#">定制路线</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="list-group lish-group-flush">
+						<!-- 触发元素 -->
+						<div class="bg-info text-light list-group-item" data-toggle="collapse"
+							data-target="#collapseOrders">
+							订单管理
+						</div>
+						<!-- 内容 -->
+						<div id="collapseOrders" class="collapse" data-parent="#accordionWrapper">
+							<div class="list-group-item">
+								<a href="#">确认订单</a>
+							</div>
+
+							<div class="list-group-item">
+								<a href="#">退款申请</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex-grow-1 pl-4 pt-3 table-responsive">
+					<div class="clearfix">
+						<div class="float-left custom-control custom-checkbox">
+							<input class="custom-control-input" type="checkbox" id="checkAll">
+							<label for="checkAll" class="custom-control-label">全选</label>
+						</div>
+
+						<form action="" class="form-inline float-right">
+							<div class="input-group">
+								<input type="type" class="form-control" placeholder="搜索">
+								<div class="input-group-append">
+									<span class="input-group-text bi-search bg-info text-light"></span>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<table class="table text-center">
+						<thead class="bg-light">
+							<tr>
+								<th scope="col"></th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">#</th>
+								<th scope="col" class="bi-sort-up-alt align-middle" style="min-width: 100px;">编号</th>
+								<th scope="col" class="bi-sort-down-alt align-middle" style="min-width: 100px;">类型</th>
+								<th scope="col" class="align-middle" style="min-width: 200px;">名称</th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">价格(元)</th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">行程天数(天)</th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">成团人数(人)</th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">集合地点</th>
+								<th scope="col" class="align-middle" style="min-width: 100px;">操作</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>
+									<input class="align-middle" type="checkbox">
+								</td>
+								<td class="align-middle">1</td>
+								<td class="align-middle">NO45</td>
+								<td class="align-middle"> 召集令</td>
+								<td class="align-middle">青海湖-互助北山-5天4晚</td>
+								<td class="align-middle">4800</td>
+								<td class="align-middle">5</td>
+								<td class="align-middle">8</td>
+								<td class="align-middle">西宁</td>
+								<td class="align-middle">
+									<big class="mr-3">
+										<a title="修改" class="text-warning bi-wrench"></a>
+									</big>
+
+									<big>
+										<a title="删除" data-toggle="modal" data-target="#delModal"
+											class="text-danger bi-trash-fill"></a>
+									</big>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="clearfix mt-3">
+						<div class="float-left">
+							<button class="btn btn-danger bi-trash">批量删除</button>
+						</div>
+
+						<nav class="float-right">
+							<ul class="pagination">
+								<li class="page-item"><a href="" class="page-link bi-chevron-double-left"></a></li>
+								<li class="page-item"><a href="" class="page-link">1</a></li>
+								<li class="page-item"><a href="" class="page-link">2</a></li>
+								<li class="page-item"><a href="" class="page-link">3</a></li>
+								<li class="page-item"><a href="" class="page-link bi-chevron-double-right"></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+			<footer class="text-center">
+				<p>Copyright@2020XXXXXXXXXXXXXXco.,Ltd.AllRightsReserved</p>
+				<p>深圳XXXXX旅游有限公司 粤 ICP 备 XXXXXXXXXXXXXX 号</p>
+			</footer>
+
+			<div class="modal" id="delModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<p>删除选中的元素？</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal">取消</button>
+							<button>提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 引入jQuery库文件 -->
+		<script src="../js/jquery-3.6.0.min.js"></script>
+		<!-- 引入BootStrap js库文件 -->
+		<script src="../js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

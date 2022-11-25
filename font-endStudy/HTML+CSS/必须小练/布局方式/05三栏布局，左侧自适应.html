@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>三栏布局，左侧自适应</title>
+        <style>
+                *{
+                        padding: 0;
+                        margin: 0;
+                }
+                body{
+                        min-width:500px;
+                }
+                .container{
+                        width: 100%;
+                        overflow: hidden;
+                }
+                .nav{
+                        height: 300px;
+                        float: left;
+                        line-height: 300px;
+                        position: relative;
+                        text-align: right;
+                }
+                .leftWrap{
+                        width: 100%;
+                        background-color: red;
+                }
+                .left{
+                        margin-right: 500px;
+                }
+                .center{
+                        background-color: aquamarine;
+                        width: 300px;
+                        margin-left: -500px;
+                }
+                .right{
+                        width: 200px;
+                        background-color: blue;
+                        margin-left: -200px;
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <div class="nav leftWrap">
+                        <div class="left">left100%</div>
+                </div>
+                <div class="nav center">center</div>
+                <div class="nav right">right</div>
+        </div>
+</body>
+</html>
