@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map数据结构</title>
+</head>
+<body>
+  <script>
+    // 在对象中只能使用字符串作为健名
+    // ES6中新增了Map数据结构
+    // Map数据结构 建值对 键可以是任何数据类型
+    let a = {a: 1}
+    let b = {b: 2}
+    let c = [1,2,3,4]
+    let map2 = new Map()
+    map2.set(a,"这是a")
+    map2.set(b,"这是a")
+    map2.set(c,"这是a")
+    console.log(map2)
+    console.log(map2.get(a));
+
+    // 属性
+    // size: 放回Map结构的成员对象
+    console.log(map2.size);
+    // constructor: 返回构造函数
+    console.log(map2.constructor);
+
+    // 方法
+    let map3 = new Map().set('name','map3').set('age',18)
+    console.log(map3)
+
+    // get(key): 读取key对应的键值
+
+    // has(): 判断是否含有某个成员 放回布尔值
+
+    // delete(): 删除某个键 成功放回true
+
+    // clear(): 清空所有成员
+
+    // keys(): 放回健名
+    console.log(map3.keys());
+    // values(): 放回键值
+    console.log(map3.values());
+    // entries(): 放回键值对
+    console.log(map3.entries());
+    // forEach(): 遍历Map所有成员 回调 进行操作
+    map3.forEach((val,key,map)=>{
+      console.log(val,key,map);
+    })
+
+    // 与其他结构相互转换
+    // 1.Map装换为数组
+    console.log([...map3]);
+
+    // 2.数组转换为Map
+    console.log(new Map([[1,2],[3,4]]));
+
+    // 3.Map转换为对象
+    let obj = {}
+    map3.forEach((val,key,map) => {
+      obj[key] = val
+    })
+    console.log(obj);
+  </script>
+</body>
+</html>

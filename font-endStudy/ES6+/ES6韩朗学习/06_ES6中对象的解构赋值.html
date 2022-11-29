@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06_ES6中对象的解构赋值</title>
+</head>
+<body>
+  <h4>06_ES6中对象的解构赋值</h4>
+  <script>
+    // 对象的结构与数组的解构有一个重要的不同
+    // 数组通过索引获取数组的元素，对象通过属性名获取属性值(无顺序)
+    // let [a,b] = [1,2]
+    // console.log(a,b);
+    // let {c,d} = {d:20,e:30,c:10}
+    // console.log(c,d);
+
+    // 结构失败 变量值等于undefined
+    // let {a} = {b:30}
+    // console.log(a); // undefined
+
+    // 1.对象的结构赋值，可以很方便的将现有对象的方法赋值给某个变量(常用,要同名)
+    // let {PI} = Math
+    // console.log(PI);
+
+    // 2.对象的解构 也可以用于嵌套解构
+    // let obj = {
+    //   age:18,
+    //   person:{
+    //     name:'王五'
+    //   }
+    // }
+    // let {age, person} = obj
+    // console.log(age, person);
+
+    // 3.默认值
+    // let {a = 10} = {}
+
+    // 变量名 属性名 保持一致
+    // let { getDay, getDate, getWeek, getMonth } = new Date()
+    // console.log(getDay);
+    // 当 变量名 和 属性名 不一致时
+    /* 对象的解构赋值的内部机制，是先找到同属性名，然后再赋值给对应的变量
+    真正被赋值的是后者 */
+    let { getDay:day, getDate:date } = new Date()
+    // {
+    //   getDay:function(){}
+    //   getDate:function(){}
+    // }
+    console.log(day,date)
+
+
+    let {x=10} = {x:undefined}
+    let {y=10} = {y:null}
+    console.log(x,y);
+  </script>
+</body>
+</html>

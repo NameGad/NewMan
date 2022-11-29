@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_ES6顶层对象</title>
+</head>
+<body>
+  <h3>04_ES6顶层对象</h3>
+  <script>
+    // 04ES6顶层对象的属性
+    // 浏览器环境中，顶层（最高级）对象 window
+    // ES5中 顶层对象的属性 与 全局变量 是等价的
+    // 顶层对象的属性赋值与全局变量的赋值，是一回事
+    // window.a = 10
+    // a = 10 // 直接赋值  全局变量
+
+
+    // ES6 中 var function 声明依旧是顶层对象的属性(没办法，为了兼容性)
+    // 但是let const class 声明的变量不属于顶层对象的属性
+    var a = 10
+    console.log(window.a)
+    let b = 10
+    console.log(window.b) // undefined
+
+  </script>
+</body>
+</html>

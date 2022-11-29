@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set的属性以及方法</title>
+</head>
+<body>
+  <script>
+    // set类似于数组，是一个伪数组，特点是成员都是唯一的，没有重复的值。
+    // add()
+    let set1 = new Set()
+    let arr = [1,2,3,4,5,6]
+    arr.forEach((item,key,set)=>{
+      set1.add(item)
+    })
+    set1.add(8)
+    console.log(...set1);
+
+    // delete() :放回布尔值：表示是否含删除成功
+    let set2 = new Set(['l','j','c'])
+    console.log(set2.delete('l'));
+    console.log(set2)
+
+    // has() :放回布尔值：表示是否含有某成员
+    console.log(set2.has('j'))
+
+    // clear(): 清除所有成员
+    set2.clear()
+    console.log(set2);
+
+    let set3 = new Set(['深圳','汕头','广州','茂名'])
+    // 用于遍历的四个方法
+    // keys():放回健名
+    console.log('keys()',set3.keys());
+    // values():放回键值对
+    console.log('values()',set3.values());
+    // entries():放回键值对
+    console.log('entries()',set3.entries());
+    // forEach():使用回调函数遍历每一个成员
+    set3.forEach((val,key,set)=>{
+      console.log(val,key,set)
+    })
+  </script>
+</body>
+</html>

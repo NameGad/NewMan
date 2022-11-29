@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10_ES6模板字符串</title>
+</head>
+<body>
+  <h4>10_ES6模板字符串</h4>
+  <script>
+    // 模板字符串 在增强的字符串(``), 可以当做普通的字符串使用, 
+    // 也可以用来定义多行字符串,或者字符串中嵌入变量
+    // 空格和缩进会被保留
+    let str = `hello
+    
+    word`
+    console.log(str);
+
+    // 嵌入变量
+    let num1 = 10
+    let num2 = 20
+    let sum = `${num1}${num2}的结果为：${num1 + num2}`
+    console.log(sum)
+    
+    console.log(`${num1 > 10}`);
+  </script>
+</body>
+</html>

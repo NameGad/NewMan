@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 const常量</title>
+</head>
+<body>
+  <script>
+    // const 一旦声明必须马上赋值
+    const a = 10
+
+    // 块级作用域
+    // 暂时性死区
+    // 不允许重复声明
+    // 不存在变量提升
+
+    // const并非真正的常量 定义一个常量引用一个值
+    // 使用const 定义对象或者数组,是可以改变的
+    const obj = {
+      name:'张三',
+      age:20
+    }
+    obj.name = '王五'
+    console.log(obj);
+
+    const arr = [1,2,3,4]
+    arr[0] = 'A'
+    console.log(arr);
+
+    // 锁死变量 Object.freeze() 冻结
+    // 1.不能向这个对象添加新属性
+    // 2.不能修改其已有属性的值
+    // 3.不能删除已有的属性
+    // 4.不能修改该对象已有属性的枚举性，可配置性，可写性
+    const person = {
+      name:'张三',
+      age:20
+    }
+    Object.freeze = (person)
+    person.name = 'Linjiacheng'
+    console.log(person)
+
+  </script>
+</body>
+</html>

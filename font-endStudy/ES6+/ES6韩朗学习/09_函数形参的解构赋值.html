@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_函数形参的解构赋值</title>
+</head>
+
+<body>
+  <h4>09_函数形参的解构赋值</h4>
+  <script>
+    function func(x, y) { // x y 形参 变量
+      return x + y
+    }
+    console.log(func(1, 2)) // 1 2 实参  
+
+    // 数组的解构
+    function add([x, y]) {
+      return x + y
+    }
+    console.log(add([9, 1]))
+
+    // 对象的解构
+    function ride({ a, b }) {
+      return a * b
+    }
+    console.log(ride({b: 20,a: 10}));
+
+    // 默认值
+    function sub({x = 100,y = 1}){
+      return x - y
+    }
+    console.log(sub({y:10,x:1}));
+    console.log(sub({y:10}));
+    console.log(sub({x:1}));
+  </script>
+</body>
+
+</html>

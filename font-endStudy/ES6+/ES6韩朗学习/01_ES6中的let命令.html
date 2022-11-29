@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <body>
+  <script>
+    // 1.let 不存在变量提升 声明提升 预解析
+
+    // 2.暂时性死区 声明的变量绑定当前区域
+    // let 命令只在代码块内有效 {}
+    // 在代码块中，变量不可以在声明前使用
+    // {
+    //   a = 10
+    //   let a
+    // }
+    // 隐藏的暂时性死区
+    // function func(x=y, y = 2){
+    //   console.log(x,y);
+    // }
+    // func() // Cannot access 'y' before initialization
+
+    // 3.不允许重复声明变量
+    // 不允许在相同作用域内重复声明变量
+
+    // 不能在函数内重复声明参数
+    function func(x){
+      let x; // 这样不行
+      {
+        let x; //这样是可以的
+      }
+    }
+    func()
+  </script>
+</body>
+</html>

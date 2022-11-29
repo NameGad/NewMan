@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05_ES6中数组解构赋值</title>
+</head>
+<body>
+  <h4>05_ES6中数组解构赋值</h4>
+  <script>
+    // let [a,b,c] = [1,2,3]
+    // console.log(a,b,c);
+    // let [d,e,[x,y]] = [4,5,[6,7]]
+    // console.log(d,e,x,y);
+
+    // 1.如果解构不成功，变量值
+    // let [i] = []
+    // console.log(i);
+    // let [o,u] = [10]
+    // console.log(o,u);
+
+    // 不完全解构
+    // let [h,j,k] = [10,20,30,40]
+    // console.log(h,j,k);
+
+    // 3. 如果等好右边不是不是数组(不是可以遍历的结构),会报错
+    // let [z1] = 1; // 1 is not iterable(可迭代)
+    // let [x1] = flase;
+    // let [c1] = undefined
+    // let [v1] = NaN
+    // let [b1] = null
+    // let [n1] = {}
+
+    // let [a,b,c,d,e,f] = 'string' // 可以
+
+    // 默认值 运行指定默认值
+    let [b = 1] = [] // b = 1
+    // ES6内部使用严格相等(绝对等于), 判断一个位置是否有值
+    let [x = 10] = [undefined] // x = 10
+    let [y = 20] = [null]  // y = null
+
+    // 默认是一个表达式 表达式是惰性求职 只有用到的时候时候才会求值
+    function fn(){
+      console.log('这是一个表达式');
+    }
+    let [f = fn()] = [] // 当右边为空，才会执行 f = fn()
+    console.log(f);
+
+    // 默认值也可以引用结构赋值的其他变量 但是变量必须是已经声明
+    let [z=10,k=z] = []
+    console.log(z,k);
+
+
+
+</script>
+</body>
+</html>

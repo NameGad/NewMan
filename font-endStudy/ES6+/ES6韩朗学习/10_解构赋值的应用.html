@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10_解构赋值的应用</title>
+</head>
+<body>
+  <h4>10_解构赋值的应用</h4>
+  <script>
+    // 1.数据交换
+    // let a = 10,b = 20
+    // [a,b] = [b,a]
+    // console.log(a,b);
+
+    // 2.从函数中放回多个数据
+    function func(){
+      return [1,2,3,4]
+    }
+    let [w,x,y,z] = func()
+    console.log(w,x,y,z);
+
+    // 3.函数参数的定义 将一组参数和变量名对应起来
+    // 3-1.参数是一组有次序的值
+    function fn1([a,b,c]) {}
+    fn1([1,2,3])
+    // 3-2.参数是一组无此项的值
+    function fn2({a,b,c}){}
+    fn2({c:1,a:2,b:3})
+
+    // 函数参数的默认值
+
+    const date = [{
+      id:1,
+      name:"张三",
+      age:18,
+      address:"数组"
+    },{
+      id:1,
+      name:"张三",
+      age:18,
+      address:"数组"
+    },{
+      id:1,
+      name:"张三",
+      age:18,
+      address:"数组"
+    }]
+    let [zs,ls,ww] = date
+    console.log(zs,ls,ww)
+    let {id,name,age,address} = zs
+    console.log(id,name,age,address)
+
+  </script>
+</body>
+</html>
