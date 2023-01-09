@@ -12,5 +12,5 @@
         }
     }
     let dog1 = new Dog('小黑');
-    console.log(dog1.say());
+    dog1.say()
 })();

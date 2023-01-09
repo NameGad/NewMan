@@ -4,7 +4,7 @@ let a: 10
 // 联合类型(if:b可为如下两种类型)
 let b: string | boolean
 
-// any 表示任意类型，一个变量设置为any后相对于关闭了TS的类型检测（不建议使用）
+// any 表示任意类型，一个变量设置为any后相当于关闭了TS的类型检测（不建议使用）
 let c: any
 c = 10
 c = 'hello'

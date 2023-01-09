@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios配合node练习</title>
+  <script src="./request.js" type="module"></script>
+</head>
+<body>
+  <button id = 'getUser'>请求用户信息</button>
+  <script type="module">
+    
+
+    const getUser = document.getElementById('getUser')
+    getUser.onclick = async () => {
+      let result = await request.get('/person')
+      console.log(result);
+    }
+  </script>
+</body>
+</html>
